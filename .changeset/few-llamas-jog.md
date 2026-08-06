@@ -1,5 +1,0 @@
----
-"skills": patch
----
-
-fix CI

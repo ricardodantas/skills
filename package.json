@@ -1,11 +1,11 @@
 {
   "name": "skills",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "changeset": "changeset",
-    "version": "changeset version && node scripts/sync-plugin-version.mjs"
+    "version": "changeset version"
   },
   "repository": {
     "type": "git",

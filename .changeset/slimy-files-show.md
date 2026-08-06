@@ -1,5 +1,0 @@
----
-"skills": major
----
-
-first version
