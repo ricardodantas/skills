@@ -1,0 +1,21 @@
+{
+  "name": "learn-about-repo-skills",
+  "owner": {
+    "name": "ricardodantas"
+  },
+  "metadata": {
+    "description": "Agent skills for understanding and working within codebases",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "learn-about-repo-skills",
+      "description": "Skills for onboarding to and analyzing codebases",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/learn-codebase"
+      ]
+    }
+  ]
+}
