@@ -1,4 +1,4 @@
-# Learn About Any Codebase
+# AI agent skills
 
 [![skills.sh](https://skills.sh/b/ricardodantas/skills)](https://skills.sh/ricardodantas/skills)
 
