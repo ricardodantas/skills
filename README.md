@@ -1,3 +1,5 @@
+[![skills.sh](https://skills.sh/b/ricardodantas/skills)](https://skills.sh/ricardodantas/skills)
+
 # Skills
 
 Skills are folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks. Skills teach Claude how to complete specific tasks in a repeatable way.
@@ -38,6 +40,14 @@ Alternatively, install the plugin directly via:
 ```
 
 After installing, use a skill by just mentioning it. For instance: "Use the learn-codebase skill to give me an overview of this repository."
+
+## Install with the skills CLI (skills.sh)
+
+This repo is also installable via the [skills.sh](https://skills.sh) CLI:
+```
+npx skills add ricardodantas/skills
+```
+Installs are counted anonymously by the CLI and feed the skills.sh leaderboard.
 
 # Creating a Basic Skill
 
