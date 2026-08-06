@@ -43,10 +43,33 @@ After installing, use a skill by just mentioning it. For instance: "Use the lear
 
 ## Install with the skills CLI (skills.sh)
 
-This repo is also installable via the [skills.sh](https://skills.sh) CLI:
+This repo is also installable via the [skills.sh](https://skills.sh) CLI. Requires Node.js.
+
+Install everything in the repo (interactive picker):
 ```
 npx skills add ricardodantas/skills
 ```
+
+Install just the `learn-codebase` skill, globally (available to all your agents):
+```
+npx skills add ricardodantas/skills --skill learn-codebase -g
+```
+
+Useful flags:
+- `-l` — list the skills in the repo without installing
+- `-a <agent>` — install to a single agent (e.g. `-a claude`) instead of all
+- `-y` — skip confirmation prompts
+
+Use a skill once without installing (generates a prompt):
+```
+npx skills use ricardodantas/skills@learn-codebase
+```
+
+Remove an installed skill:
+```
+npx skills remove learn-codebase
+```
+
 Installs are counted anonymously by the CLI and feed the skills.sh leaderboard.
 
 # Creating a Basic Skill
