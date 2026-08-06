@@ -2,9 +2,9 @@
 
 [![skills.sh](https://skills.sh/b/ricardodantas/skills)](https://skills.sh/ricardodantas/skills)
 
-Agent skills for understanding an unfamiliar codebase — fast. Point an agent at a repo and get a real briefing: architecture, key modules, data flow, how to build/run/test, and where the bodies are buried.
+Agent skills for real engineering work — starting with understanding unfamiliar codebases, plus small utilities for terminal media and headless web scraping.
 
-The headline skill, `learn-codebase`, first discovers which agent skills you already have installed, then reaches for the ones relevant to *this* repo's stack to do the analysis — so the more skills you have, the smarter it gets.
+The headline skill, `learn-codebase`, first discovers which agent skills you already have installed, then reaches for the ones relevant to *this* repo's stack to do the analysis — so the more skills you have, the smarter it gets. Alongside it are focused tools: `terminal-screenshots` (VHS-based terminal GIFs/screenshots) and `podman-browser` (Podman + Playwright page scraping).
 
 ## Installation (30-second setup)
 
@@ -76,13 +76,22 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 
 - **[learn-codebase](./skills/learn-codebase/SKILL.md)** — Discovers the installed agent skills, applies the ones relevant to a repo's stack, and maps its architecture, modules, data flow, conventions, and build/run/test — producing an in-conversation briefing plus a saved `CODEBASE_OVERVIEW.md`.
 
+### Tooling
+
+**Model-invoked**
+
+- **[terminal-screenshots](./skills/terminal-screenshots/SKILL.md)** — Generate reproducible terminal screenshots and animated GIF/MP4/WebM recordings from VHS (Charmbracelet) `.tape` scripts, for docs, READMEs, and CLI demos.
+- **[podman-browser](./skills/podman-browser/SKILL.md)** — Headless browser automation via Podman + Playwright (Chromium) to fetch and scrape JavaScript-rendered pages as text or HTML.
+
 ## Repository layout
 
 ```
 .
 ├── .claude-plugin/marketplace.json   # plugin/marketplace manifest
 ├── skills/                           # one directory per skill
-│   └── learn-codebase/
+│   ├── learn-codebase/
+│   ├── terminal-screenshots/
+│   └── podman-browser/
 ├── template/SKILL.md                 # blank starting point for a new skill
 └── README.md
 ```
