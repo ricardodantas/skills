@@ -1,16 +1,16 @@
 {
-  "name": "learn-about-repo-skills",
+  "name": "ricardodantas-skills",
   "owner": {
     "name": "ricardodantas"
   },
   "metadata": {
-    "description": "Agent skills for understanding and working within codebases",
+    "description": "Composable agent skills for real engineering work",
     "version": "1.0.0"
   },
   "plugins": [
     {
-      "name": "learn-about-repo-skills",
-      "description": "Skills for onboarding to and analyzing codebases",
+      "name": "ricardodantas-skills",
+      "description": "Composable agent skills: understand codebases, capture terminal media, and scrape JS-rendered pages",
       "source": "./",
       "strict": false,
       "skills": [

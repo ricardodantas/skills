@@ -19,7 +19,7 @@ Add this repo as a plugin marketplace, then install the plugin:
 
 ```bash
 /plugin marketplace add ricardodantas/skills
-/plugin install learn-about-repo-skills@learn-about-repo-skills
+/plugin install ricardodantas-skills@ricardodantas-skills
 ```
 
 Updates arrive when you run `/plugin update`.
@@ -54,17 +54,19 @@ Handy flags: `-l` lists the skills without installing, `--skill learn-codebase -
 
 ### 2. Run it
 
-In your agent, just mention the skill:
+In your agent, just mention a skill by name — for example:
 
 > "Use the learn-codebase skill to give me an overview of this repository."
 
-It produces an in-conversation briefing and writes a `CODEBASE_OVERVIEW.md` to the repo.
+Model-invoked skills are also reached for automatically when a task fits.
 
-## Why This Skill Exists
+## Why These Skills Exist
 
-**The problem.** Landing in an unfamiliar codebase is slow. Agents guess from file names, miss the real architecture, and skip the one command that actually runs the tests. And most "explain this repo" prompts throw away the specialized skills you already have installed.
+Small, composable skills — not a framework. Each solves one real problem an agent hits:
 
-**The fix.** `learn-codebase` treats your installed skills as a toolbox. It reads the live list of available skills, detects the repo's stack from its manifests and config, selects the skills that fit (design, review, debugging, language/framework guidance), and applies them to trace the code end to end — then leaves behind a `CODEBASE_OVERVIEW.md` you can keep.
+- **learn-codebase** — Landing in an unfamiliar repo is slow; agents guess from file names and miss the real architecture. This skill treats your installed skills as a toolbox: it detects the stack, picks the skills that fit, traces the code end to end, and leaves a `CODEBASE_OVERVIEW.md` behind.
+- **terminal-screenshots** — Hand-recorded terminal GIFs drift and look inconsistent. VHS `.tape` scripts make them reproducible and re-runnable in CI.
+- **podman-browser** — A plain HTTP fetch returns empty markup on JavaScript-rendered pages. This renders the page headlessly in a Podman + Playwright container and returns the real text or HTML.
 
 ## Reference
 
