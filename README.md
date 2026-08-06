@@ -1,113 +1,95 @@
+# Learn About Any Codebase
+
 [![skills.sh](https://skills.sh/b/ricardodantas/skills)](https://skills.sh/ricardodantas/skills)
 
-# Skills
+Agent skills for understanding an unfamiliar codebase — fast. Point an agent at a repo and get a real briefing: architecture, key modules, data flow, how to build/run/test, and where the bodies are buried.
 
-Skills are folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks. Skills teach Claude how to complete specific tasks in a repeatable way.
+The headline skill, `learn-codebase`, first discovers which agent skills you already have installed, then reaches for the ones relevant to *this* repo's stack to do the analysis — so the more skills you have, the smarter it gets.
 
-For more information, check out:
-- [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
-- [Using skills in Claude](https://support.claude.com/en/articles/12512180-using-skills-in-claude)
-- [How to create custom skills](https://support.claude.com/en/articles/12512198-creating-custom-skills)
+## Installation (30-second setup)
 
-# About This Repository
+Two ways in, two philosophies. **The [Claude Code plugin](https://code.claude.com/docs/en/plugins)** installs the set as a managed bundle that updates when this repo ships — you subscribe rather than fork. **[skills.sh](https://skills.sh/ricardodantas/skills)** copies editable skill files into your project, so you can hack on them and make them your own. Pick one — installing both leaves you with every skill twice.
 
-This repository contains agent skills for understanding and working within codebases. It is structured like [anthropics/skills](https://github.com/anthropics/skills) so new skills can be added easily.
+### 1. Get the skills
 
-Each skill is self-contained in its own folder under [`skills/`](./skills) with a `SKILL.md` file containing the instructions and metadata that Claude uses.
+<details>
+<summary><strong>Claude Code</strong></summary>
 
-Current skills:
-- [`skills/learn-codebase`](./skills/learn-codebase) — Discovers the installed agent skills, applies the ones relevant to a repo's stack, and produces a codebase briefing plus a saved `CODEBASE_OVERVIEW.md`.
+Add this repo as a plugin marketplace, then install the plugin:
 
-# Skill Sets
-- [./skills](./skills): The skills in this repository, one folder each
-- [./template](./template): Skill template
-
-# Try in Claude Code
-
-You can register this repository as a Claude Code Plugin marketplace by running the following command in Claude Code:
-```
+```bash
 /plugin marketplace add ricardodantas/skills
-```
-
-Then, to install the skills:
-1. Select `Browse and install plugins`
-2. Select `learn-about-repo-skills`
-3. Select `Install now`
-
-Alternatively, install the plugin directly via:
-```
 /plugin install learn-about-repo-skills@learn-about-repo-skills
 ```
 
-After installing, use a skill by just mentioning it. For instance: "Use the learn-codebase skill to give me an overview of this repository."
+Updates arrive when you run `/plugin update`.
 
-## Install with the skills CLI (skills.sh)
+</details>
 
-This repo is also installable via the [skills.sh](https://skills.sh) CLI. Requires Node.js.
+<details>
+<summary><strong>Codex, and other agents</strong></summary>
 
-Install everything in the repo (interactive picker):
-```
-npx skills add ricardodantas/skills
-```
-
-Install just the `learn-codebase` skill, globally (available to all your agents):
-```
-npx skills add ricardodantas/skills --skill learn-codebase -g
+```bash
+npx skills@latest add ricardodantas/skills
 ```
 
-Useful flags:
-- `-l` — list the skills in the repo without installing
-- `-a <agent>` — install to a single agent (e.g. `-a claude`) instead of all
-- `-y` — skip confirmation prompts
+Pick the skills you want and which coding agents to install them on. Requires Node.js.
 
-Use a skill once without installing (generates a prompt):
-```
-npx skills use ricardodantas/skills@learn-codebase
-```
+</details>
 
-Remove an installed skill:
-```
-npx skills remove learn-codebase
+<details>
+<summary><strong>For tinkerers</strong></summary>
+
+Use the same installer, on any agent — including Claude Code:
+
+```bash
+npx skills@latest add ricardodantas/skills
 ```
 
-Installs are counted anonymously by the CLI and feed the skills.sh leaderboard.
+It writes the skills into your repo as ordinary files you own and can edit. Nothing updates behind your back; pull the latest changes when you want them with `npx skills update`.
 
-# Creating a Basic Skill
+Handy flags: `-l` lists the skills without installing, `--skill learn-codebase -g` installs just that one globally, `-a <agent>` targets a single agent, `-y` skips prompts. Use once without installing via `npx skills use ricardodantas/skills@learn-codebase`, and remove with `npx skills remove learn-codebase`.
 
-Skills are simple to create — just a folder with a `SKILL.md` file containing YAML frontmatter and instructions. You can use the **template-skill** in [`./template`](./template) as a starting point:
+</details>
 
-```markdown
----
-name: my-skill-name
-description: A clear description of what this skill does and when to use it
----
+### 2. Run it
 
-# My Skill Name
+In your agent, just mention the skill:
 
-[Add your instructions here that Claude will follow when this skill is active]
+> "Use the learn-codebase skill to give me an overview of this repository."
 
-## Examples
-- Example usage 1
-- Example usage 2
+It produces an in-conversation briefing and writes a `CODEBASE_OVERVIEW.md` to the repo.
 
-## Guidelines
-- Guideline 1
-- Guideline 2
+## Why This Skill Exists
+
+**The problem.** Landing in an unfamiliar codebase is slow. Agents guess from file names, miss the real architecture, and skip the one command that actually runs the tests. And most "explain this repo" prompts throw away the specialized skills you already have installed.
+
+**The fix.** `learn-codebase` treats your installed skills as a toolbox. It reads the live list of available skills, detects the repo's stack from its manifests and config, selects the skills that fit (design, review, debugging, language/framework guidance), and applies them to trace the code end to end — then leaves behind a `CODEBASE_OVERVIEW.md` you can keep.
+
+## Reference
+
+Skills split on one axis — who can invoke them. **User-invoked** skills run only when you type them; their job is to orchestrate. **Model-invoked** skills can be invoked by you _or_ reached for automatically by the agent when the task fits.
+
+### Engineering
+
+**Model-invoked**
+
+- **[learn-codebase](./skills/learn-codebase/SKILL.md)** — Discovers the installed agent skills, applies the ones relevant to a repo's stack, and maps its architecture, modules, data flow, conventions, and build/run/test — producing an in-conversation briefing plus a saved `CODEBASE_OVERVIEW.md`.
+
+## Repository layout
+
+```
+.
+├── .claude-plugin/marketplace.json   # plugin/marketplace manifest
+├── skills/                           # one directory per skill
+│   └── learn-codebase/
+├── template/SKILL.md                 # blank starting point for a new skill
+└── README.md
 ```
 
-The frontmatter requires only two fields:
-- `name` - A unique identifier for your skill (lowercase, hyphens for spaces; must match the folder name)
-- `description` - A complete description of what the skill does and when to use it
+### Adding a skill
 
-## Adding a skill to this repository
-
-1. Copy the template into a new folder under `skills/`:
-   ```bash
-   cp -r template skills/my-skill
-   ```
-2. Set `name: my-skill` in `skills/my-skill/SKILL.md`, add a trigger-rich `description`, and write the instructions. Add optional `scripts/`, `references/`, and `assets/` subfolders as needed.
-3. Register it in [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) under `plugins[].skills`:
-   ```json
-   "./skills/my-skill"
-   ```
-4. Add it to the skills list above.
+1. Copy the template into a new folder under `skills/`: `cp -r template skills/my-skill`.
+2. Set `name: my-skill` in `skills/my-skill/SKILL.md` (must match the folder), write a trigger-rich `description` and the instructions. Add optional `scripts/`, `references/`, `assets/` as needed.
+3. Register it in [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) under `plugins[].skills` as `"./skills/my-skill"`.
+4. Add it to the Reference section above.
