@@ -9,11 +9,17 @@ and working within codebases. Structured like
 ```
 .
 ├── .claude-plugin/
-│   └── marketplace.json   # plugin/marketplace manifest listing the skills
-├── skills/                # one directory per skill
+│   └── marketplace.json           # plugin/marketplace manifest listing the skills
+├── skills/                        # one directory per skill
 │   └── learn-codebase/
+│       ├── SKILL.md               # skill instructions + frontmatter
+│       ├── scripts/
+│       │   └── list_skills.py     # scans skill dirs for full name: description pairs
+│       └── references/
+│           └── report-template.md # CODEBASE_OVERVIEW.md structure
 ├── template/
-│   └── SKILL.md           # blank starting point for a new skill
+│   └── SKILL.md                   # blank starting point for a new skill
+├── .gitignore
 └── README.md
 ```
 
