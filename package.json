@@ -1,0 +1,29 @@
+{
+  "name": "skills",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "changeset": "changeset",
+    "version": "changeset version && node scripts/sync-plugin-version.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ricardodantas/skills"
+  },
+  "keywords": [],
+  "author": "Ricardo Dantas Goncalves <me@ricardodantas.me>",
+  "license": "MIT",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.20.0",
+      "onFail": "download"
+    }
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.30.0"
+  },
+  "type": "module"
+}
