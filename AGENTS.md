@@ -57,5 +57,6 @@ If a skill ships a script with non-trivial logic, keep its runnable self-check
 ## Conventions
 
 - `*.skill` archives are build artifacts — git-ignored, never committed.
+- The `learn-codebase` skill writes its generated repo overview to `docs/CODEBASE_OVERVIEW.md`.
 - Commits include the trailer: `Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>`.
 - Prefer the smallest change that fully solves the task; don't add speculative abstractions.

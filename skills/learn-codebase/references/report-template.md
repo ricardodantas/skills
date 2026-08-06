@@ -1,8 +1,8 @@
 # CODEBASE_OVERVIEW.md template
 
-Write this file into the analyzed repo. Keep it factual and verified against the code — every
-claim should be traceable to a file. Fill sections that apply; delete those that don't. Prefer
-concrete file paths and commands over prose.
+Write this file to `docs/CODEBASE_OVERVIEW.md` in the analyzed repo (create `docs/` if needed).
+Keep it factual and verified against the code — every claim should be traceable to a file. Fill
+sections that apply; delete those that don't. Prefer concrete file paths and commands over prose.
 
 ```markdown
 # Codebase Overview

@@ -64,7 +64,7 @@ Model-invoked skills are also reached for automatically when a task fits.
 
 Small, composable skills — not a framework. Each solves one real problem an agent hits:
 
-- **learn-codebase** — Landing in an unfamiliar repo is slow; agents guess from file names and miss the real architecture. This skill treats your installed skills as a toolbox: it detects the stack, picks the skills that fit, traces the code end to end, and leaves a `CODEBASE_OVERVIEW.md` behind.
+- **learn-codebase** — Landing in an unfamiliar repo is slow; agents guess from file names and miss the real architecture. This skill treats your installed skills as a toolbox: it detects the stack, picks the skills that fit, traces the code end to end, and leaves a `docs/CODEBASE_OVERVIEW.md` behind.
 - **terminal-screenshots** — Hand-recorded terminal GIFs drift and look inconsistent. VHS `.tape` scripts make them reproducible and re-runnable in CI.
 - **podman-browser** — A plain HTTP fetch returns empty markup on JavaScript-rendered pages. This renders the page headlessly in a Podman + Playwright container and returns the real text or HTML.
 
@@ -76,7 +76,7 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 
 **Model-invoked**
 
-- **[learn-codebase](./skills/learn-codebase/SKILL.md)** — Discovers the installed agent skills, applies the ones relevant to a repo's stack, and maps its architecture, modules, data flow, conventions, and build/run/test — producing an in-conversation briefing plus a saved `CODEBASE_OVERVIEW.md`.
+- **[learn-codebase](./skills/learn-codebase/SKILL.md)** — Discovers the installed agent skills, applies the ones relevant to a repo's stack, and maps its architecture, modules, data flow, conventions, and build/run/test — producing an in-conversation briefing plus a saved `docs/CODEBASE_OVERVIEW.md`.
 
 ### Tooling
 

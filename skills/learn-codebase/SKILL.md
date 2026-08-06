@@ -1,6 +1,6 @@
 ---
 name: learn-codebase
-description: Learn and explain an unfamiliar codebase by first discovering which agent skills are installed, then applying the ones relevant to this repo's stack to map its architecture, modules, data flow, conventions, and how to build/run/test it. Produces an in-conversation briefing and a saved CODEBASE_OVERVIEW.md. Use when the user asks to "understand/learn/explain this repo", "onboard me to this codebase", "give me an overview of the project", "how does this codebase work", or when starting work in a repo you have not seen before.
+description: Learn and explain an unfamiliar codebase by first discovering which agent skills are installed, then applying the ones relevant to this repo's stack to map its architecture, modules, data flow, conventions, and how to build/run/test it. Produces an in-conversation briefing and a saved docs/CODEBASE_OVERVIEW.md. Use when the user asks to "understand/learn/explain this repo", "onboard me to this codebase", "give me an overview of the project", "how does this codebase work", or when starting work in a repo you have not seen before.
 ---
 
 # Learn Codebase
@@ -9,7 +9,7 @@ description: Learn and explain an unfamiliar codebase by first discovering which
 
 Orchestrate the *other* installed skills to understand a codebase. First find out what
 skills exist, pick the ones that fit this repo, then use them to produce a briefing plus a
-saved `CODEBASE_OVERVIEW.md`.
+saved `docs/CODEBASE_OVERVIEW.md`.
 
 ## Workflow
 
@@ -17,7 +17,7 @@ saved `CODEBASE_OVERVIEW.md`.
 2. **Detect the stack** — cheap signals reveal languages/frameworks/tooling.
 3. **Select relevant skills** — match stack + task to skills.
 4. **Analyze** — apply the selected skills to learn the repo.
-5. **Output** — deliver a briefing and write `CODEBASE_OVERVIEW.md`.
+5. **Output** — deliver a briefing and write `docs/CODEBASE_OVERVIEW.md`.
 
 ## 1. Discover available skills
 
@@ -94,9 +94,9 @@ frontend, infra) and merge findings. Verify claims against the code — don't in
 Deliver **both**:
 
 1. A concise briefing in the conversation (lead with purpose + architecture).
-2. A written report at `CODEBASE_OVERVIEW.md` in the analyzed repo, following
-   [references/report-template.md](references/report-template.md). Anchor it with the current
-   date and commit SHA. If the file already exists, reconcile/update it rather than blindly
-   overwriting.
+2. A written report at `docs/CODEBASE_OVERVIEW.md` in the analyzed repo, following
+   [references/report-template.md](references/report-template.md). Create the `docs/` folder if it
+   doesn't exist. Anchor the report with the current date and commit SHA. If the file already
+   exists, reconcile/update it rather than blindly overwriting.
 
 Write the report file but do **not** commit it automatically — leave that to the user.

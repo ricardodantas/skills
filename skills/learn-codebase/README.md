@@ -10,7 +10,7 @@ Point an agent at a repo and get a real briefing: architecture, key modules, dat
 2. **Detects** the repo's stack from manifests and config.
 3. **Selects** the skills that fit (design, review, debugging, language/framework guidance).
 4. **Analyzes** the code end to end — architecture, modules, data/control flow, entry points, build/run/test, conventions, risks.
-5. **Outputs** an in-conversation briefing **and** writes `CODEBASE_OVERVIEW.md` into the repo.
+5. **Outputs** an in-conversation briefing **and** writes `docs/CODEBASE_OVERVIEW.md` into the repo.
 
 ## Usage
 
@@ -32,6 +32,6 @@ npx skills add ricardodantas/skills --skill learn-codebase
 |------|-------------|
 | `SKILL.md` | Skill instructions and metadata |
 | `scripts/list_skills.py` | Scans skill directories for full `name: description` pairs |
-| `references/report-template.md` | Structure for the generated `CODEBASE_OVERVIEW.md` |
+| `references/report-template.md` | Structure for the generated `docs/CODEBASE_OVERVIEW.md` |
 
 See [SKILL.md](SKILL.md) for the full workflow.
