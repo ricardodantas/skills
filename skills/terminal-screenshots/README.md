@@ -29,7 +29,7 @@ Sleep 2s
 
 Run with:
 ```bash
-vhs demo.gif
+vhs demo.tape
 ```
 
 ## Installation
@@ -61,14 +61,13 @@ See [SKILL.md](SKILL.md) for the complete reference including:
 
 ## Using as an Agent Skill
 
-This skill is designed for [OpenClaw](https://github.com/openclaw/openclaw) and similar AI agent frameworks.
+This skill lives in [`ricardodantas/skills`](https://github.com/ricardodantas/skills). Install it with the [skills.sh](https://skills.sh) CLI:
 
-Add to your skills directory:
 ```bash
-git clone https://github.com/ricardodantas/terminal-screenshots ~/.openclaw/workspace/skills/terminal-screenshots
+npx skills add ricardodantas/skills --skill terminal-screenshots
 ```
 
-The agent will automatically use this skill when creating terminal screenshots or recordings.
+The agent reaches for it automatically when creating terminal screenshots or recordings.
 
 ## License
 

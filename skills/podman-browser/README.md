@@ -18,28 +18,15 @@ This skill runs a headless Chromium browser inside a Podman container using Micr
 
 ## Installation
 
-### For OpenClaw users
-
-Copy the skill folder to your OpenClaw skills directory:
+This skill lives in [`ricardodantas/skills`](https://github.com/ricardodantas/skills). Install it with the [skills.sh](https://skills.sh) CLI:
 
 ```bash
-cp -r podman-browser ~/.openclaw/workspace/skills/
+npx skills add ricardodantas/skills --skill podman-browser
 ```
 
-Create a symlink to make it available in your PATH:
+To call `browse.js` directly from your shell, symlink it onto your PATH (adjust the path to wherever the skill was installed):
 
 ```bash
-ln -sf ~/.openclaw/workspace/skills/podman-browser/browse.js ~/.local/bin/podman-browse
-chmod +x ~/.openclaw/workspace/skills/podman-browser/browse.js
-```
-
-### Standalone usage
-
-Clone this repo and add to your PATH:
-
-```bash
-git clone https://github.com/ricardodantas/podman-browser.git
-cd podman-browser
 chmod +x browse.js
 ln -sf "$(pwd)/browse.js" ~/.local/bin/podman-browse
 ```
@@ -95,7 +82,7 @@ podman-browse --wait 5000 "https://news.ycombinator.com/newest"
 | File | Description |
 |------|-------------|
 | `browse.js` | Self-contained Node.js CLI (handles args + spawns podman) |
-| `SKILL.md` | OpenClaw skill documentation |
+| `SKILL.md` | Skill instructions and metadata |
 
 ## Container Image
 
