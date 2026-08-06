@@ -31,17 +31,27 @@ scripts/list_skills.py            # scans ~/.agents/skills, ~/.claude/skills, ./
 scripts/list_skills.py /path/to/skills   # add a non-standard location
 ```
 
+Invoke it by its full path in *this skill's* directory — your cwd is usually the target repo,
+not the skill folder.
+
 Do not hardcode a skill catalog — always read the live list, since installed skills change.
 
 ## 2. Detect the stack
 
 Read only what's cheap and decisive before committing to skills:
 
+- **Docs first**: `README`, `AGENTS.md` / `CLAUDE.md`, `CONTRIBUTING`, `docs/` — the
+  highest-signal source for purpose, conventions, and the *real* build/run/test commands.
 - **Manifests / lockfiles**: `package.json`, `pyproject.toml`, `go.mod`, `Cargo.toml`,
   `*.csproj`, `Gemfile`, `pom.xml`, `Package.swift`, `*.xcodeproj`.
 - **Config**: framework configs (next.config, vite, tailwind, astro), `Dockerfile`,
   compose files, CI under `.github/`, `Makefile`.
-- **Shape**: top-level dirs, file-extension histogram, entry points, test dirs, README.
+- **Monorepo?**: check for workspaces (pnpm/yarn/npm `workspaces`, `packages/*`, `apps/*`,
+  Cargo/Go workspaces) and analyze each package, not just the root.
+- **Shape**: top-level dirs, file-extension histogram, entry points, test dirs.
+
+Skip vendored/generated dirs (`node_modules`, `.git`, `dist`, `build`, `target`, `vendor`,
+`.venv`) — they skew signals and waste effort.
 
 ## 3. Select relevant skills
 
@@ -85,6 +95,8 @@ Deliver **both**:
 
 1. A concise briefing in the conversation (lead with purpose + architecture).
 2. A written report at `CODEBASE_OVERVIEW.md` in the analyzed repo, following
-   [references/report-template.md](references/report-template.md).
+   [references/report-template.md](references/report-template.md). Anchor it with the current
+   date and commit SHA. If the file already exists, reconcile/update it rather than blindly
+   overwriting.
 
 Write the report file but do **not** commit it automatically — leave that to the user.
