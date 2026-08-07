@@ -32,10 +32,10 @@ AppName/
 
 For multi-target (watchOS/tvOS): duplicate Models/ and Services/ into each target folder rather than sharing via framework.
 
-> SwiftUI code (state, view composition, `@Observable`, `@Environment`, platform layout,
-> performance, latest APIs) → `swiftui-expert-skill`. Tests → `swift-testing-pro`. Liquid Glass
-> design → `swiftui-liquid-glass`. The rules below are the ship-specific constraints those
-> skills don't cover.
+> SwiftUI UI (views, layout, navigation, TabView, composition) → `swiftui-ui-patterns`; SwiftUI
+> engineering (state, `@Observable`, `@Environment`, performance, latest APIs) →
+> `swiftui-expert-skill`; tests → `swift-testing-pro`; Liquid Glass design →
+> `swiftui-liquid-glass`. The rules below are the ship-specific constraints those skills don't cover.
 
 ## SwiftData Models
 

@@ -29,7 +29,8 @@ delegated to dedicated skills that stay current:
 
 | When you're… | Use skill |
 |--------------|-----------|
-| Writing/reviewing/refactoring SwiftUI code (state, views, performance, APIs) | `swiftui-expert-skill` |
+| Building SwiftUI views/components — layout, navigation, TabView, composition | `swiftui-ui-patterns` |
+| SwiftUI engineering — state/`@Observable` data flow, performance/invalidation, Instruments traces, latest/deprecated APIs | `swiftui-expert-skill` |
 | Writing or reviewing tests | `swift-testing-pro` |
 | Implementing or reviewing the visual design (iOS 26+ Liquid Glass) | `swiftui-liquid-glass` |
 
@@ -65,7 +66,8 @@ Determine which phase the user needs, then read only that reference file. Most p
 - watchOS/tvOS targets get their own copies of models (not shared framework)
 - Package manager: **pnpm** (not npm) for web projects
 
-For SwiftUI code (state, view composition, `@Observable`, TabView, performance, latest APIs)
+For SwiftUI UI patterns (views, layout, navigation, TabView, composition) defer to
+`swiftui-ui-patterns`; for SwiftUI engineering (state, `@Observable`, performance, latest APIs)
 defer to `swiftui-expert-skill`; for tests defer to `swift-testing-pro`; for Liquid Glass design
 defer to `swiftui-liquid-glass`.
 

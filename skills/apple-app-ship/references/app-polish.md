@@ -16,7 +16,7 @@ screenshots look real. For the SwiftUI/SwiftData code itself, use `swiftui-exper
 
 ## iPad/macOS Layout Polish
 
-Adaptive layout (`horizontalSizeClass`, grids, split views) → `swiftui-expert-skill`. For the
+Adaptive layout (`horizontalSizeClass`, grids, split views) → `swiftui-ui-patterns`. For the
 iOS 26+ visual design language (Liquid Glass materials, effects) → `swiftui-liquid-glass`.
 Ship-specific reminders:
 
