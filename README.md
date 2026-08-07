@@ -65,6 +65,7 @@ Model-invoked skills are also reached for automatically when a task fits.
 Small, composable skills — not a framework. Each solves one real problem an agent hits:
 
 - **learn-codebase** — Landing in an unfamiliar repo is slow; agents guess from file names and miss the real architecture. This skill treats your installed skills as a toolbox: it detects the stack, picks the skills that fit, traces the code end to end, and leaves a `docs/CODEBASE_OVERVIEW.md` behind.
+- **apple-app-ship** — Shipping an Apple app spans architecture, polish, a marketing site, App Store screenshots, and submission — each a specialty. This skill orchestrates the workflow, checking for and delegating to the right companion skill at each phase instead of re-teaching everything.
 - **terminal-screenshots** — Hand-recorded terminal GIFs drift and look inconsistent. VHS `.tape` scripts make them reproducible and re-runnable in CI.
 - **podman-browser** — A plain HTTP fetch returns empty markup on JavaScript-rendered pages. This renders the page headlessly in a Podman + Playwright container and returns the real text or HTML.
 
@@ -77,7 +78,7 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 **Model-invoked**
 
 - **[learn-codebase](./skills/learn-codebase/SKILL.md)** — Discovers the installed agent skills, applies the ones relevant to a repo's stack, and maps its architecture, modules, data flow, conventions, and build/run/test — producing an in-conversation briefing plus a saved `docs/CODEBASE_OVERVIEW.md`.
-- **[apple-app-ship](./skills/apple-app-ship/SKILL.md)** — End-to-end workflow for building, polishing, and shipping native Apple platform apps (SwiftUI) — architecture, marketing website (Astro + Tailwind), App Store screenshots, and App Store Connect submission.
+- **[apple-app-ship](./skills/apple-app-ship/SKILL.md)** — End-to-end workflow for building, polishing, and shipping native Apple platform apps (SwiftUI) — architecture, marketing website, App Store screenshots, and App Store Connect submission. Orchestrates specialized companion skills at each phase (checking they're installed first) rather than re-teaching the craft.
 
 ### Tooling
 
