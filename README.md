@@ -77,6 +77,7 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 **Model-invoked**
 
 - **[learn-codebase](./skills/learn-codebase/SKILL.md)** — Discovers the installed agent skills, applies the ones relevant to a repo's stack, and maps its architecture, modules, data flow, conventions, and build/run/test — producing an in-conversation briefing plus a saved `docs/CODEBASE_OVERVIEW.md`.
+- **[apple-app-ship](./skills/apple-app-ship/SKILL.md)** — End-to-end workflow for building, polishing, and shipping native Apple platform apps (SwiftUI) — architecture, marketing website (Astro + Tailwind), App Store screenshots, and App Store Connect submission.
 
 ### Tooling
 
@@ -84,6 +85,12 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 
 - **[terminal-screenshots](./skills/terminal-screenshots/SKILL.md)** — Generate reproducible terminal screenshots and animated GIF/MP4/WebM recordings from VHS (Charmbracelet) `.tape` scripts, for docs, READMEs, and CLI demos.
 - **[podman-browser](./skills/podman-browser/SKILL.md)** — Headless browser automation via Podman + Playwright (Chromium) to fetch and scrape JavaScript-rendered pages as text or HTML.
+
+### Content
+
+**Model-invoked**
+
+- **[typefully-cli](./skills/typefully-cli/SKILL.md)** — Manage social content via the Typefully CLI — create, schedule, publish, and manage drafts across X, LinkedIn, Threads, Bluesky, and Mastodon from the terminal.
 
 ## Repository layout
 
@@ -93,7 +100,9 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 ├── skills/                           # one directory per skill
 │   ├── learn-codebase/
 │   ├── terminal-screenshots/
-│   └── podman-browser/
+│   ├── podman-browser/
+│   ├── apple-app-ship/
+│   └── typefully-cli/
 ├── template/SKILL.md                 # blank starting point for a new skill
 └── README.md
 ```
