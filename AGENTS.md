@@ -39,6 +39,7 @@ marketplace) with minimal ceremony. See [README.md](./README.md) for user-facing
 2. Write `skills/my-skill/SKILL.md` (set `name: my-skill`, a trigger-rich `description`, the instructions).
 3. Register it in `.claude-plugin/marketplace.json` under `plugins[].skills` as `"./skills/my-skill"`.
 4. Add it to the **Reference** section of `README.md`.
+5. Record a changeset for the release — see [Conventions](#conventions).
 
 A skill is not "done" until it is listed in `marketplace.json` — otherwise it won't publish.
 
@@ -57,6 +58,7 @@ If a skill ships a script with non-trivial logic, keep its runnable self-check
 ## Conventions
 
 - `*.skill` archives are build artifacts — git-ignored, never committed.
+- Ship user-facing changes with a Changeset: run `pnpm changeset` to record the version bump. The Release workflow (`.github/workflows/release.yml`) consumes pending changesets on push to `main` and opens a version PR — no changeset means no release or changelog entry.
 - The `learn-codebase` skill writes its generated repo overview to `docs/CODEBASE_OVERVIEW.md`.
 - Commits include the trailer: `Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>`.
 - Prefer the smallest change that fully solves the task; don't add speculative abstractions.
