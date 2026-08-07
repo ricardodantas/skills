@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Discover documentation files in a repo and report what changed since the last release.
+"""Discover documentation files in a repo and report a doc drift map.
 
-Classifies docs into `agent` (AGENTS.md, CLAUDE.md, .claude/, skill files) vs `human`
-(README, docs/, guides, changelog, etc.), and — inside a git repo — lists files changed
-since the most recent release tag so the agent knows where reality drifted from the docs.
+Classifies docs into `agent` (AGENTS.md, CLAUDE.md, .claude/, skill files), `changelog`, and
+`human` (README, docs/, guides, ...). Inside a git repo, reports the files changed since a
+baseline — a `--since` ref if given, else the most recent release tag — plus uncommitted work,
+so the caller knows where reality drifted from the docs.
 
 Usage:
     scan_docs.py [repo_root]              # default: cwd; baseline = last release tag

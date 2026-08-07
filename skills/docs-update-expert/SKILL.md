@@ -27,10 +27,11 @@ when agent docs are in scope; `find-docs` only when a doc makes version-specific
 ## 1. Ground truth — model the repo
 
 Delegate to `learn-codebase` to map the stack, architecture, commands, and conventions, and to
-surface repo-relevant skills. If a `docs/CODEBASE_OVERVIEW.md` already exists and is current, reuse
-it instead of re-running the full analysis. This model — not memory — is what every doc is measured
-against. Apply any repo-relevant skills it surfaces (e.g. a framework or testing skill) when they
-sharpen a specific doc.
+surface repo-relevant skills. Reuse an existing `docs/CODEBASE_OVERVIEW.md` only if the commit SHA
+it records still matches `git rev-parse HEAD`; otherwise — or if it's absent — re-run learn-codebase
+to rebuild the model. This model — not memory — is what every doc is measured against. Apply any
+repo-relevant skills it surfaces (e.g. a framework or testing skill) when they sharpen a specific
+doc.
 
 ## 2. Discover the docs
 

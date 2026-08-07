@@ -29,20 +29,17 @@ When a claim depends on a specific library/framework/CLI version, pull current d
 
 ## Agent docs — AGENTS.md, CLAUDE.md, `.claude/`, `.cursor/`, skill files
 
-These are consumed by an agent, so **edit them through the `writing-for-agents` skill** — apply its
-levers rather than prose-editing:
+Consumed by an agent, so **edit them through the `writing-for-agents` skill** — it is the source of
+truth for the writing levers (pointers, single-source-of-truth, no-ops, progressive disclosure).
+Apply them there rather than restating them here.
 
-- **Pointers** — every reference to another doc/skill states what it is and the branch that
-  triggers reaching it; sharpen weak wording.
-- **Single source of truth** — a fact lives in one place; delete duplication and stale caches of
-  what the environment already states (scripts, config, `--help`).
-- **Relevance / no-ops** — cut lines that no longer bear on the repo or that the model already
-  obeys by default.
-- **Commands & paths** — build/test/lint commands and file paths match the current environment.
-- **Progressive disclosure** — keep the top file lean; push on-demand detail behind pointers.
+Reconcile the parts that track the repo's *current state*:
 
-If the repo has skill files (`SKILL.md`), verify frontmatter and `name`↔folder still match and the
-described workflow reflects the current scripts/references.
+- **Commands & paths** — build/test/lint commands, file paths, and directory layout match the
+  current environment.
+- **Stack facts** — languages, versions, tools, and conventions match what `learn-codebase` found.
+- **Skill files** — for each `SKILL.md`, frontmatter `name` still matches its folder and the
+  described workflow reflects the current scripts/references.
 
 ## API / code reference docs
 
