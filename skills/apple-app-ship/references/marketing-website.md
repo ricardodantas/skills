@@ -1,13 +1,19 @@
 # Marketing Website
 
-Build a dark, premium marketing site using **Astro + Tailwind CSS**.
+Build the marketing site on **Astro + Tailwind CSS**. For the visual design and component craft
+— layout, typography, hero, the premium look — use `frontend-design` (confirm it's available; if
+missing, offer to install with `npx skills find frontend-design`). This file owns the
+App-Store-specific scaffolding: stack, required pages, SEO/structured data, config, and security
+headers.
 
 ## Stack
 
 - Astro v5+ (static site generator)
-- Tailwind CSS v3+ (dark theme)
-- Fonts: Cabinet Grotesk (display) + DM Sans (body) or similar
+- Tailwind CSS v3+
 - Deploy: Bunny.net CDN, Vercel, Netlify, or GitHub Pages
+
+Theme, fonts, and overall aesthetic → `frontend-design`. A dark, premium look with a display +
+body font pairing (e.g. Cabinet Grotesk + DM Sans) is a sensible default.
 
 ## Project Structure
 
@@ -66,7 +72,8 @@ app-website/
 
 ## CSS Device Frames
 
-Pure CSS device frames for screenshots — no images needed:
+Ship-specific starting point for App Store device mockups (refine the styling via
+`frontend-design`) — pure CSS frames, no images needed:
 
 ```css
 /* iPhone frame */

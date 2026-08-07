@@ -33,6 +33,7 @@ delegated to dedicated skills that stay current:
 | SwiftUI engineering — state/`@Observable` data flow, performance/invalidation, Instruments traces, latest/deprecated APIs | `swiftui-expert-skill` |
 | Writing or reviewing tests | `swift-testing-pro` |
 | Implementing or reviewing the visual design (iOS 26+ Liquid Glass) | `swiftui-liquid-glass` |
+| Designing the marketing website UI (Phase 3 — layout, components, aesthetic) | `frontend-design` |
 
 Before that work, confirm the skill is available (it appears in your available skills). If one
 is missing, tell the user and offer to install it — `npx skills find <skill-name>` — rather than
