@@ -8,8 +8,8 @@ headers.
 
 ## Stack
 
-- Astro v5+ (static site generator)
-- Tailwind CSS v3+
+- Astro latest version (static site generator)
+- Tailwind CSS latest version
 - Deploy: Bunny.net CDN, Vercel, Netlify, or GitHub Pages
 
 Theme, fonts, and overall aesthetic → `frontend-design`. A dark, premium look with a display +
@@ -48,6 +48,7 @@ app-website/
 ## Required Pages (5)
 
 ### 1. Landing (`index.astro`)
+
 - Hero: headline + App Store badge + device mockup
 - Features: 3-4 sections with device screenshots in CSS frames
 - Platform grid: icons for each supported platform
@@ -55,19 +56,23 @@ app-website/
 - CTA: final App Store badge
 
 ### 2. Privacy (`privacy.astro`)
+
 - "Data Not Collected" if applicable
 - Clear sections: data collection, analytics, third-party, contact
 
 ### 3. Terms (`terms.astro`)
+
 - Standard terms for paid app (no subscription)
 - Sections: license, purchases, limitations, changes, contact
 
 ### 4. Support (`support.astro`)
+
 - Collapsible FAQ using `<details><summary>` elements
 - FAQ Schema (`@type: FAQPage`) structured data for SEO
 - Contact email link
 
 ### 5. 404 (`404.astro`)
+
 - Branded error page with link home
 
 ## CSS Device Frames
@@ -130,6 +135,7 @@ Ship-specific starting point for App Store device mockups (refine the styling vi
 ## SEO Essentials
 
 In `Layout.astro`:
+
 - `<meta name="apple-itunes-app" content="app-id=YOUR_APP_ID">` (Smart App Banner)
 - Open Graph tags (title, description, image, url)
 - Twitter cards
