@@ -25,6 +25,10 @@ Ship-specific reminders:
 
 ## Pre-Ship Checklist
 
+Before submitting, run `app-store-review` to evaluate the code against Apple's App Store Review
+Guidelines and catch likely rejections. For macOS builds distributed **outside** the App Store,
+use `asc-notarization` (Developer ID signing + Apple notarization).
+
 ### Required
 - [ ] App icon (all sizes) via Icon Composer or asset catalog
 - [ ] Privacy manifest (`PrivacyInfo.xcprivacy`)

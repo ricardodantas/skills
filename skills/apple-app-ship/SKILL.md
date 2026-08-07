@@ -24,22 +24,24 @@ End-to-end skill for building and shipping Apple platform apps. Covers five phas
 
 ## Companion skills
 
-This skill owns the *ship workflow*, not general SwiftUI/testing/design craft — those are
-delegated to dedicated skills that stay current:
+This skill owns the *ship workflow*; the craft in each phase is delegated to dedicated skills
+that stay current. The table below is the **registry** — **up front, before starting**, check
+that the companions for the phases you'll run are available (they appear in your available
+skills). For any that are missing, tell the user and offer to install it —
+`npx skills find <skill-name>` — then proceed. Don't fall back to inline guidance for delegated work.
 
-| When you're… | Use skill |
-|--------------|-----------|
-| Planning the app's UI/UX — HIG, navigation, SF Symbols, typography, color, layout | `apple-design` |
-| Building SwiftUI views/components — layout, navigation, TabView, composition | `swiftui-ui-patterns` |
-| SwiftUI engineering — state/`@Observable` data flow, performance/invalidation, Instruments traces, latest/deprecated APIs | `swiftui-expert-skill` |
-| Writing or reviewing tests | `swift-testing-pro` |
-| Implementing or reviewing the visual design (iOS 26+ Liquid Glass) | `swiftui-liquid-glass` |
-| Designing the marketing website UI (Phase 3 — layout, components, aesthetic) | `frontend-design` |
-| Producing App Store screenshots (Phase 4 — capture, frame, upload) | `asc-shots-pipeline` |
+| Phase / area | Companion skills |
+|--------------|------------------|
+| Plan & build (1) — UI/HIG, SwiftUI, build, signing | `apple-design`, `swiftui-ui-patterns`, `swiftui-expert-skill`, `swiftui-liquid-glass`, `xcode-mcp`, `asc-signing-setup`, `asc-xcode-build` |
+| Polish & readiness (2) — tests, guidelines, notarization | `swift-testing-pro`, `app-store-review`, `asc-notarization` |
+| Marketing website (3) | `frontend-design` |
+| App Store images (4) | `asc-shots-pipeline`, `asc-screenshot-resize` |
+| App Store Connect submission (5) — record, metadata, ASO, release | `asc-app-create-ui`, `asc-metadata-sync`, `asc-whats-new-writer`, `asc-localize-metadata`, `asc-aso-audit`, `asc-release-flow`, `asc-submission-health`, `asc-build-lifecycle`, `asc-id-resolver`, `asc-workflow`, `asc-cli-usage` |
+| TestFlight & beta | `asc-testflight-orchestration`, `asc-crash-triage` |
+| Monetization | `asc-ppp-pricing`, `asc-subscription-localization`, `asc-revenuecat-catalog-sync`, `asc-apple-ads` |
+| Final review | `apple-appstore-reviewer` |
 
-Before that work, confirm the skill is available (it appears in your available skills). If one
-is missing, tell the user and offer to install it — `npx skills find <skill-name>` — rather than
-falling back to inline guidance here.
+All `asc-*` skills drive the `asc` CLI — `asc-cli-usage` covers its basics.
 
 ## Workflow
 

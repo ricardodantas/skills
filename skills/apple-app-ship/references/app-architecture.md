@@ -5,6 +5,7 @@
 - **Always use the latest Swift and Xcode versions** (currently Swift 6, Xcode 26)
 - Target the latest OS versions (iOS 26+, macOS Tahoe 26+, watchOS 26+, tvOS 26+)
 - Use XcodeGen (`project.yml`) for project generation when creating new apps
+- Build/run via `xcode-mcp`; signing and archive/upload via `asc-signing-setup` / `asc-xcode-build`
 
 ## Bundle Identifier
 
@@ -36,7 +37,9 @@ For multi-target (watchOS/tvOS): duplicate Models/ and Services/ into each targe
 > `apple-design`; SwiftUI UI (views, layout, TabView, composition) → `swiftui-ui-patterns`;
 > SwiftUI engineering (state, `@Observable`, `@Environment`, performance, latest APIs) →
 > `swiftui-expert-skill`; tests → `swift-testing-pro`; Liquid Glass design →
-> `swiftui-liquid-glass`. The rules below are the ship-specific constraints those skills don't cover.
+> `swiftui-liquid-glass`; build/run → `xcode-mcp`; signing (bundle IDs, certs, profiles) →
+> `asc-signing-setup`; archive/export/upload → `asc-xcode-build`. The rules below are the
+> ship-specific constraints those skills don't cover.
 
 ## SwiftData Models
 

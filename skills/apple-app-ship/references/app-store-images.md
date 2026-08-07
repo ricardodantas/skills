@@ -21,7 +21,8 @@ Use the `asc-shots-pipeline` skill to produce the screenshots end to end — aut
 (xcodebuild/simctl + AXe UI flows), framing (`asc screenshots frame`), and upload
 (`asc screenshots upload`). Confirm it's available; if missing, tell the user and offer to
 install it — `npx skills find asc-shots-pipeline`. Feed it the Required Sizes above and the
-debug-seeded app state (see app-polish.md) for clean, populated screens.
+debug-seeded app state (see app-polish.md) for clean, populated screens. Validate/resize final
+images with `asc-screenshot-resize`.
 
 ## Alternative: custom-designed marketing images (Node + sharp)
 

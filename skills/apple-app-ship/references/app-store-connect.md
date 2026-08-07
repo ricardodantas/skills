@@ -1,5 +1,18 @@
 # App Store Connect Submission
 
+Drive this phase with the `asc` CLI skills (`asc-cli-usage` for the basics). Map:
+
+- App record → `asc-app-create-ui` · IDs → `asc-id-resolver`
+- Metadata → `asc-metadata-sync` · keywords/ASO → `asc-aso-audit` · translations → `asc-localize-metadata` · What's New → `asc-whats-new-writer`
+- Build/upload → `asc-xcode-build` · processing → `asc-build-lifecycle`
+- Release orchestration → `asc-release-flow` · blockers/review health → `asc-submission-health` · multi-step automation → `asc-workflow`
+- TestFlight → `asc-testflight-orchestration` · crashes/beta feedback → `asc-crash-triage`
+- Pricing → `asc-ppp-pricing` · IAP/subscription names → `asc-subscription-localization` · RevenueCat → `asc-revenuecat-catalog-sync` · Apple Ads → `asc-apple-ads`
+
+Check availability up front; offer `npx skills find <name>` for any missing. The reference facts
+below (char limits, templates, privacy labels, rejection reasons) are the ship-specific
+constraints those skills apply.
+
 ## App Store Metadata
 
 ### Required Fields
@@ -101,6 +114,9 @@ For one-time purchase apps:
 5. **Guideline 3.1.1 — Payments**: Using non-Apple payment for digital goods
 
 ## Build & Upload
+
+Prefer `asc-xcode-build` (archive → export → upload) and `asc-release-flow` (stage version →
+upload → publish → submit); `asc-build-lifecycle` tracks processing. Manual Xcode fallback:
 
 ```bash
 # In Xcode:
