@@ -2,51 +2,9 @@
 
 ## Debug Data Seeder
 
-Create screenshot-ready sample data behind `#if DEBUG`:
-
-```swift
-#if DEBUG
-import SwiftData
-
-struct DebugDataSeeder {
-    static func populate(context: ModelContext) {
-        // Clear existing
-        try? context.delete(model: Item.self)
-
-        let calendar = Calendar.current
-        let today = Date()
-
-        // Create realistic data spanning 30-60 days
-        for dayOffset in 0..<45 {
-            guard let date = calendar.date(byAdding: .day, value: -dayOffset, to: today) else { continue }
-            let item = Item(title: "Sample \(dayOffset)", createdAt: date)
-            context.insert(item)
-        }
-        try? context.save()
-    }
-
-    static func deleteAll(context: ModelContext) {
-        try? context.delete(model: Item.self)
-        try? context.save()
-    }
-}
-#endif
-```
-
-Add to Settings behind `#if DEBUG`:
-
-```swift
-#if DEBUG
-Section("Debug") {
-    Button("Populate Sample Data") {
-        DebugDataSeeder.populate(context: modelContext)
-    }
-    Button("Delete All Data", role: .destructive) {
-        DebugDataSeeder.deleteAll(context: modelContext)
-    }
-}
-#endif
-```
+Ship a `#if DEBUG` seeder that populates screenshot-ready sample data (and a matching
+delete-all), wired into `SettingsView` behind `#if DEBUG`. It's what makes App Store
+screenshots look real. For the SwiftUI/SwiftData code itself, use `swiftui-expert-skill`.
 
 ### Data Seeder Tips
 
@@ -58,26 +16,11 @@ Section("Debug") {
 
 ## iPad/macOS Layout Polish
 
-Use `horizontalSizeClass` for adaptive layouts:
+Adaptive layout (`horizontalSizeClass`, grids, split views) → `swiftui-expert-skill`. For the
+iOS 26+ visual design language (Liquid Glass materials, effects) → `swiftui-liquid-glass`.
+Ship-specific reminders:
 
-```swift
-@Environment(\.horizontalSizeClass) private var horizontalSizeClass
-
-var body: some View {
-    if horizontalSizeClass == .regular {
-        // Wide: 2-column grid, side-by-side cards
-        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) { ... }
-    } else {
-        // Compact: single column stack
-        VStack { ... }
-    }
-}
-```
-
-macOS-specific patterns:
-- Use `.frame(maxWidth: 520)` for wizard-style centered layouts
-- `.labelsHidden()` to suppress Picker labels that look redundant on Mac
-- 2-column `LazyVGrid` for completed/list views (maxWidth ~960)
+- macOS: `.frame(maxWidth: 520)` for wizard-style centered layouts; `.labelsHidden()` on Pickers that read redundant on Mac; 2-column grid (maxWidth ~960) for list views
 - tvOS: buttons instead of sliders (Siri Remote compatibility)
 
 ## Pre-Ship Checklist
@@ -102,6 +45,9 @@ macOS-specific patterns:
 - [ ] Siri Shortcuts (3-7 intents)
 
 ### Testing
+
+Use `swift-testing-pro` for the test code itself. Ship coverage bar:
+
 - [ ] Unit tests for business logic (Services, Calculators)
 - [ ] UI tests for critical flows
 - [ ] Test on real devices (especially watch, TV)

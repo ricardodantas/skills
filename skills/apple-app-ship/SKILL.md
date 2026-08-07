@@ -22,6 +22,21 @@ End-to-end skill for building and shipping Apple platform apps. Covers five phas
 4. **App Store Images** → references/app-store-images.md
 5. **App Store Connect Submission** → references/app-store-connect.md
 
+## Companion skills
+
+This skill owns the *ship workflow*, not general SwiftUI/testing/design craft — those are
+delegated to dedicated skills that stay current:
+
+| When you're… | Use skill |
+|--------------|-----------|
+| Writing/reviewing/refactoring SwiftUI code (state, views, performance, APIs) | `swiftui-expert-skill` |
+| Writing or reviewing tests | `swift-testing-pro` |
+| Implementing or reviewing the visual design (iOS 26+ Liquid Glass) | `swiftui-liquid-glass` |
+
+Before that work, confirm the skill is available (it appears in your available skills). If one
+is missing, tell the user and offer to install it — `npx skills find <skill-name>` — rather than
+falling back to inline guidance here.
+
 ## Workflow
 
 Determine which phase the user needs, then read only that reference file. Most projects flow sequentially but users may jump to any phase.
@@ -42,17 +57,17 @@ Determine which phase the user needs, then read only that reference file. Most p
 - **Always use the latest versions of Swift and Xcode** (currently Swift 6, Xcode 26+)
 - **Bundle identifier pattern**: `com.yourcompany.<appname>` (e.g. `com.yourcompany.nutricounter`) — use your own reverse-DNS domain
 - **CloudKit container pattern**: `iCloud.com.yourcompany.<appname>`
-- **Swift 6 strict concurrency**, zero third-party dependencies (100% Apple frameworks)
-- `@Observable` macro (NOT `ObservableObject`/Combine`) unless project already uses Combine
-- `async/await` + `Task` (NOT Combine publishers)
-- Swift Testing framework (NOT XCTest)
+- Zero third-party dependencies (100% Apple frameworks)
 - All SwiftData model properties optional (CloudKit requirement)
 - `#if DEBUG` for any debug-only code (stripped from Release builds)
 - Platform conditionals: `#if os(iOS)`, `#if os(macOS)`, `#if os(watchOS)`, `#if os(tvOS)`
 - macOS "Designed for iPad" apps: `#if os(macOS)` does NOT match — use `#if os(iOS)`
 - watchOS/tvOS targets get their own copies of models (not shared framework)
 - Package manager: **pnpm** (not npm) for web projects
-- **iOS 26 TabView**: Use `Tab("Name", systemImage:, value:)` API (not legacy `.tabItem`); each tab content MUST be wrapped in `NavigationStack` — the TabView reserves top space for navigation bar
+
+For SwiftUI code (state, view composition, `@Observable`, TabView, performance, latest APIs)
+defer to `swiftui-expert-skill`; for tests defer to `swift-testing-pro`; for Liquid Glass design
+defer to `swiftui-liquid-glass`.
 
 ### Reusable Assets
 
