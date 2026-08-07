@@ -1,5 +1,12 @@
 # skills
 
+## 1.2.1
+
+### Patch Changes
+
+- 6ba0611: Docs: refresh `README.md` and `docs/CODEBASE_OVERVIEW.md` to reflect the current repo state — five skills, `apple-app-ship` recast as a companion-skill orchestrator, the new `hugo-write-post` skill, and the proven Changesets release flow.
+- 1ffa936: Improve `hugo-write-post`: invoke `analyze_style.py` by its skill-directory path (the working directory at runtime is the Hugo repo, not the skill folder), handle the cold-start case of a blog with too few posts to learn from, and add a content-integrity guardrail (no fabricated facts, quotes, or stats — leave marked `TODO:` placeholders instead).
+
 ## 1.2.0
 
 ### Minor Changes
