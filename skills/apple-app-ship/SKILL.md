@@ -3,8 +3,7 @@ name: apple-app-ship
 description: >
   End-to-end workflow for building, polishing, and shipping native Apple platform apps
   (iOS, iPadOS, macOS, watchOS, tvOS) with SwiftUI — from architecture to App Store submission.
-  Includes marketing website generation (Astro + Tailwind), App Store screenshot/image generation
-  (Node + sharp), debug data seeders, and App Store Connect metadata.
+  Covers the app code, a marketing website, App Store screenshots, and App Store Connect metadata.
   Use when: (1) creating a new Apple app from scratch, (2) polishing an existing app for release,
   (3) building a marketing website for an Apple app, (4) generating App Store marketing screenshots,
   (5) preparing App Store Connect submission (metadata, privacy labels, review notes),
@@ -25,9 +24,9 @@ End-to-end skill for building and shipping Apple platform apps. Covers five phas
 ## Companion skills
 
 This skill owns the *ship workflow*; the craft in each phase is delegated to dedicated skills
-that stay current. The table below is the **registry** — **up front, before starting**, check
-that the companions for the phases you'll run are available (they appear in your available
-skills). For any that are missing, tell the user and offer to install it —
+that stay current. The table below is the **registry** — run it as a **preflight**: before
+starting, check that the companions for the phases you'll run are available (they appear in your
+available skills). For any that are missing, tell the user and offer to install it —
 `npx skills find <skill-name>` — then proceed. Don't fall back to inline guidance for delegated work.
 
 | Phase / area | Companion skills |
@@ -36,7 +35,7 @@ skills). For any that are missing, tell the user and offer to install it —
 | Polish & readiness (2) — tests, guidelines, notarization | `swift-testing-pro`, `app-store-review`, `asc-notarization` |
 | Marketing website (3) | `frontend-design` |
 | App Store images (4) | `asc-shots-pipeline`, `asc-screenshot-resize` |
-| App Store Connect submission (5) — record, metadata, ASO, release | `asc-app-create-ui`, `asc-metadata-sync`, `asc-whats-new-writer`, `asc-localize-metadata`, `asc-aso-audit`, `asc-release-flow`, `asc-submission-health`, `asc-build-lifecycle`, `asc-id-resolver`, `asc-workflow`, `asc-cli-usage` |
+| App Store Connect submission (5) — record, metadata, ASO, release | `asc-app-create-ui`, `asc-metadata-sync`, `asc-whats-new-writer`, `asc-localize-metadata`, `asc-aso-audit`, `asc-release-flow`, `asc-submission-health`, `asc-build-lifecycle`, `asc-id-resolver`, `asc-workflow` |
 | TestFlight & beta | `asc-testflight-orchestration`, `asc-crash-triage` |
 | Monetization | `asc-ppp-pricing`, `asc-subscription-localization`, `asc-revenuecat-catalog-sync`, `asc-apple-ads` |
 | Final review | `apple-appstore-reviewer` |
@@ -60,11 +59,9 @@ Determine which phase the user needs, then read only that reference file. Most p
 
 ### Final review
 
-When the work is finished — before submitting to App Store Connect — run a review of the
-codebase with `apple-appstore-reviewer` to catch App Store optimizations and likely rejection
-reasons. Confirm it's available; if missing, tell the user and offer to install it —
-`npx skills find apple-appstore-reviewer`. For an end-to-end "ship this app" run, always finish
-with this review.
+When the work is finished — before submitting to App Store Connect — run `apple-appstore-reviewer`
+over the codebase to catch App Store optimizations and likely rejection reasons. Always finish an
+end-to-end "ship this app" run with this review.
 
 ### Key Conventions (All Phases)
 
@@ -79,13 +76,6 @@ with this review.
 - watchOS/tvOS targets get their own copies of models (not shared framework)
 - Package manager: **pnpm** (not npm) for web projects
 
-When planning the app's UI (HIG, navigation, SF Symbols, typography, color, layout) defer to
-`apple-design`; for SwiftUI UI patterns (views, layout, TabView, composition) defer to
-`swiftui-ui-patterns`; for SwiftUI engineering (state, `@Observable`, performance, latest APIs)
-defer to `swiftui-expert-skill`; for tests defer to `swift-testing-pro`; for Liquid Glass design
-defer to `swiftui-liquid-glass`.
-
 ### Reusable Assets
 
-- **App Store screenshots**: prefer the `asc-shots-pipeline` skill (capture → frame → upload). The Node + sharp script below is the fallback for bespoke branded marketing frames.
-- `scripts/generate-appstore-images.js` — Parameterized Node + sharp script for generating App Store marketing images (iPhone, iPad, Mac) with device frames, Dynamic Island, headlines, and shadows. See references/app-store-images.md for configuration.
+- `scripts/generate-appstore-images.js` — Node + sharp generator for bespoke branded App Store images (device frames, Dynamic Island, headlines, shadows); the fallback when `asc-shots-pipeline` isn't the fit. See references/app-store-images.md.
