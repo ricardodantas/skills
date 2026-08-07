@@ -10,7 +10,7 @@ headers.
 
 - Astro latest version (static site generator)
 - Tailwind CSS latest version
-- Deploy: Bunny.net CDN, Vercel, Netlify, or GitHub Pages
+- Deploy: Cloudflare Pages
 
 Theme, fonts, and overall aesthetic → `frontend-design`. A dark, premium look with a display +
 body font pairing (e.g. Cabinet Grotesk + DM Sans) is a sensible default.
