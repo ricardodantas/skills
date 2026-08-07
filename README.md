@@ -68,6 +68,7 @@ Small, composable skills — not a framework. Each solves one real problem an ag
 - **apple-app-ship** — Shipping an Apple app spans architecture, polish, a marketing site, App Store screenshots, and submission — each a specialty. This skill orchestrates the workflow, checking for and delegating to the right companion skill at each phase instead of re-teaching everything.
 - **terminal-screenshots** — Hand-recorded terminal GIFs drift and look inconsistent. VHS `.tape` scripts make them reproducible and re-runnable in CI.
 - **podman-browser** — A plain HTTP fetch returns empty markup on JavaScript-rendered pages. This renders the page headlessly in a Podman + Playwright container and returns the real text or HTML.
+- **hugo-write-post** — Blog posts written by an agent read generic. This skill learns your voice from your existing Hugo posts and drafts a new one on a given topic that matches it, placed with the right front matter — delegating the writing to `social-content`.
 
 ## Reference
 
@@ -87,6 +88,12 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 - **[terminal-screenshots](./skills/terminal-screenshots/SKILL.md)** — Generate reproducible terminal screenshots and animated GIF/MP4/WebM recordings from VHS (Charmbracelet) `.tape` scripts, for docs, READMEs, and CLI demos.
 - **[podman-browser](./skills/podman-browser/SKILL.md)** — Headless browser automation via Podman + Playwright (Chromium) to fetch and scrape JavaScript-rendered pages as text or HTML.
 
+### Content
+
+**Model-invoked**
+
+- **[hugo-write-post](./skills/hugo-write-post/SKILL.md)** — In a Hugo (gohugo.io) repo, learns the author's writing style from existing posts and writes a new post on a given topic that matches that voice, placed with correct Hugo front matter. Delegates the prose to `social-content`.
+
 ## Repository layout
 
 ```
@@ -96,7 +103,8 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 │   ├── learn-codebase/
 │   ├── terminal-screenshots/
 │   ├── podman-browser/
-│   └── apple-app-ship/
+│   ├── apple-app-ship/
+│   └── hugo-write-post/
 ├── template/SKILL.md                 # blank starting point for a new skill
 └── README.md
 ```

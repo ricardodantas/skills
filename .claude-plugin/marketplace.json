@@ -17,7 +17,8 @@
         "./skills/learn-codebase",
         "./skills/terminal-screenshots",
         "./skills/podman-browser",
-        "./skills/apple-app-ship"
+        "./skills/apple-app-ship",
+        "./skills/hugo-write-post"
       ]
     }
   ]
