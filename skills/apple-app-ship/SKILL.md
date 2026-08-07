@@ -40,8 +40,8 @@ Determine which phase the user needs, then read only that reference file. Most p
 ### Key Conventions (All Phases)
 
 - **Always use the latest versions of Swift and Xcode** (currently Swift 6, Xcode 26+)
-- **Bundle identifier pattern**: `me.ricardodantas.<appname>` (e.g. `me.ricardodantas.nutricounter`)
-- **CloudKit container pattern**: `iCloud.me.ricardodantas.<appname>`
+- **Bundle identifier pattern**: `com.yourcompany.<appname>` (e.g. `com.yourcompany.nutricounter`) — use your own reverse-DNS domain
+- **CloudKit container pattern**: `iCloud.com.yourcompany.<appname>`
 - **Swift 6 strict concurrency**, zero third-party dependencies (100% Apple frameworks)
 - `@Observable` macro (NOT `ObservableObject`/Combine`) unless project already uses Combine
 - `async/await` + `Task` (NOT Combine publishers)

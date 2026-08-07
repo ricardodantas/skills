@@ -9,8 +9,8 @@
 ## Bundle Identifier
 
 Always use this pattern:
-- **Bundle ID**: `me.ricardodantas.<appname>` (e.g. `me.ricardodantas.nutricounter`)
-- **CloudKit container**: `iCloud.me.ricardodantas.<appname>`
+- **Bundle ID**: `com.yourcompany.<appname>` (e.g. `com.yourcompany.nutricounter`) — replace `com.yourcompany` with your own reverse-DNS domain
+- **CloudKit container**: `iCloud.com.yourcompany.<appname>`
 
 ## Project Structure
 
@@ -56,8 +56,8 @@ Key rules:
 - All properties optional (CloudKit requirement)
 - Use `String` for enum-like fields (CloudKit can't sync Swift enums)
 - Add `init()` with sensible defaults
-- Bundle ID: `me.ricardodantas.<appname>`
-- CloudKit container: `iCloud.me.ricardodantas.<appname>`
+- Bundle ID: `com.yourcompany.<appname>`
+- CloudKit container: `iCloud.com.yourcompany.<appname>`
 
 ## Service Layer Pattern
 
@@ -121,7 +121,7 @@ Use `@Environment(\.horizontalSizeClass)` for iPad vs iPhone layout switching:
 
 ```swift
 import os.log
-private let logger = Logger(subsystem: "me.ricardodantas.appname", category: "ServiceName")
+private let logger = Logger(subsystem: "com.yourcompany.appname", category: "ServiceName")
 logger.info("Something happened")
 logger.error("Something failed: \(error.localizedDescription)")
 ```
