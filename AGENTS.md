@@ -62,3 +62,17 @@ If a skill ships a script with non-trivial logic, keep its runnable self-check
 - The `learn-codebase` skill writes its generated repo overview to `docs/CODEBASE_OVERVIEW.md`.
 - Commits include the trailer: `Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>`.
 - Prefer the smallest change that fully solves the task; don't add speculative abstractions.
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in this repo's GitHub Issues (via the `gh` CLI). See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five canonical triage roles, each label string equal to its name. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context — `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
