@@ -19,7 +19,8 @@
         "./skills/podman-browser",
         "./skills/apple-app-ship",
         "./skills/hugo-write-post",
-        "./skills/hugo-expert"
+        "./skills/hugo-expert",
+        "./skills/docs-update-expert"
       ]
     }
   ]

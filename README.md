@@ -81,6 +81,7 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 
 - **[learn-codebase](./skills/learn-codebase/SKILL.md)** — Discovers the installed agent skills, applies the ones relevant to a repo's stack, and maps its architecture, modules, data flow, conventions, and build/run/test — producing an in-conversation briefing plus a saved `docs/CODEBASE_OVERVIEW.md`.
 - **[apple-app-ship](./skills/apple-app-ship/SKILL.md)** — End-to-end workflow for building, polishing, and shipping native Apple platform apps (SwiftUI) — architecture, marketing website, App Store screenshots, and App Store Connect submission. Orchestrates specialized companion skills at each phase (checking they're installed first) rather than re-teaching the craft.
+- **[docs-update-expert](./skills/docs-update-expert/SKILL.md)** — Reconciles a repo's docs (README, `docs/`, CHANGELOG, agent docs, API refs, inline comments) with its current state. Orchestrates `learn-codebase` to model the repo, `writing-for-agents` for agent-facing docs, and `find-docs` for version-specific details.
 
 ### Tooling
 
