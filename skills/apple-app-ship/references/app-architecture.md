@@ -81,7 +81,7 @@ final class AppService {
 }
 ```
 
-Inject via environment: `.environment(AppService(modelContext: context))`
+Inject via environment: `.environment(AppService(modelContext: context))`. Read it back in views with `@Environment(AppService.self) private var service`. Create the service once (not inline in a re-evaluated `body`) so its `@Observable` state survives view updates.
 
 ## App Entry Point
 
@@ -120,7 +120,7 @@ Use `@Environment(\.horizontalSizeClass)` for iPad vs iPhone layout switching:
 ## Logging
 
 ```swift
-import os.log
+import OSLog
 private let logger = Logger(subsystem: "com.yourcompany.appname", category: "ServiceName")
 logger.info("Something happened")
 logger.error("Something failed: \(error.localizedDescription)")
@@ -130,8 +130,8 @@ logger.error("Something failed: \(error.localizedDescription)")
 
 ```swift
 struct DoSomethingIntent: AppIntent {
-    static var title: LocalizedStringResource = "Do Something"
-    static var description: IntentDescription = "Does something useful"
+    static let title: LocalizedStringResource = "Do Something"
+    static let description = IntentDescription("Does something useful")
 
     @Parameter(title: "Input") var input: String
 
