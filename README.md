@@ -104,3 +104,4 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 2. Set `name: my-skill` in `skills/my-skill/SKILL.md` (must match the folder), write a trigger-rich `description` and the instructions. Add optional `scripts/`, `references/`, `assets/` as needed.
 3. Register it in [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) under `plugins[].skills` as `"./skills/my-skill"`.
 4. Add it to the Reference section above.
+5. Record a changeset so the release versions it: `pnpm changeset` (see [AGENTS.md](./AGENTS.md#conventions)).
