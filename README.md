@@ -69,6 +69,7 @@ Small, composable skills — not a framework. Each solves one real problem an ag
 - **terminal-screenshots** — Hand-recorded terminal GIFs drift and look inconsistent. VHS `.tape` scripts make them reproducible and re-runnable in CI.
 - **podman-browser** — A plain HTTP fetch returns empty markup on JavaScript-rendered pages. This renders the page headlessly in a Podman + Playwright container and returns the real text or HTML.
 - **hugo-write-post** — Blog posts written by an agent read generic. This skill learns your voice from your existing Hugo posts and drafts a new one on a given topic that matches it, placed with the right front matter — delegating the writing to `social-content`.
+- **hugo-expert** — Hugo ships often and its APIs move, so cached knowledge goes stale. This skill pairs durable Hugo best-practices (themes, templating, config, performance, deploy, i18n, SEO) with live, version-pinned docs fetched via Context7 — expert help that stays current with the repo's Hugo version.
 
 ## Reference
 
@@ -93,6 +94,7 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 **Model-invoked**
 
 - **[hugo-write-post](./skills/hugo-write-post/SKILL.md)** — In a Hugo (gohugo.io) repo, learns the author's writing style from existing posts and writes a new post on a given topic that matches that voice, placed with correct Hugo front matter. Delegates the prose to `social-content`.
+- **[hugo-expert](./skills/hugo-expert/SKILL.md)** — Expert Hugo (gohugo.io) guidance across themes, templating, content modeling, config/modules, performance, deployment, i18n, SEO, and upgrades — fetching version-appropriate docs via Context7 (`find-docs`) for the repo's Hugo version. Delegates blog-post writing to `hugo-write-post`.
 
 ## Repository layout
 
@@ -104,7 +106,8 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 │   ├── terminal-screenshots/
 │   ├── podman-browser/
 │   ├── apple-app-ship/
-│   └── hugo-write-post/
+│   ├── hugo-write-post/
+│   └── hugo-expert/
 ├── template/SKILL.md                 # blank starting point for a new skill
 └── README.md
 ```

@@ -18,7 +18,8 @@
         "./skills/terminal-screenshots",
         "./skills/podman-browser",
         "./skills/apple-app-ship",
-        "./skills/hugo-write-post"
+        "./skills/hugo-write-post",
+        "./skills/hugo-expert"
       ]
     }
   ]
