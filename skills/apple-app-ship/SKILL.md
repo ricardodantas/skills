@@ -69,7 +69,7 @@ with this review.
 ### Key Conventions (All Phases)
 
 - **Always use the latest versions of Swift and Xcode** (currently Swift 6, Xcode 26+)
-- **Bundle identifier pattern**: `com.yourcompany.<appname>` (e.g. `com.yourcompany.nutricounter`) — use your own reverse-DNS domain
+- **Bundle identifier pattern**: `com.yourcompany.<appname>` (e.g. `com.yourcompany.myapp`) — use your own reverse-DNS domain
 - **CloudKit container pattern**: `iCloud.com.yourcompany.<appname>`
 - Zero third-party dependencies (100% Apple frameworks)
 - All SwiftData model properties optional (CloudKit requirement)
