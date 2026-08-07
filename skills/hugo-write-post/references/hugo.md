@@ -51,14 +51,19 @@ posts use — don't add fields they never set.
 Prefer Hugo's generator so the site's archetype and default front matter are applied:
 
 ```bash
-hugo new content posts/my-post.md
+hugo new content posts/my-post.md                 # uses archetypes/posts.md, else default.md
+hugo new content --kind tutorials posts/my-post.md # force a specific archetype kind
 ```
 
 - **Archetypes** (`archetypes/`) are templates for new content. `archetypes/default.md` (or a
   section-specific `archetypes/posts.md`) defines the front matter `hugo new` scaffolds. Read it to
-  see the exact fields/format the site expects.
+  see the exact fields/format the site expects. Archetypes are Go templates and may contain
+  variables like `{{ .Date }}`, `{{ .Name }}`, `{{ replace .Name "-" " " | title }}`, or
+  `{{ site.Language.Lang }}` — Hugo fills these in; don't copy them literally into the final post.
 - If the Hugo CLI isn't installed, create the file by hand and copy the front-matter shape from the
   newest existing post in the same section.
+- If a generated draft ends up in a different front-matter format than the author uses, normalize it
+  with `hugo convert toTOML` / `toYAML` / `toJSON` rather than rewriting by hand.
 
 ## Taxonomies
 
