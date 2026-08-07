@@ -34,15 +34,21 @@ points, target length) they volunteer — but do not invent constraints they did
 
 ### 3. Learn the author's voice
 
-Run the analyzer to extract the mechanical conventions across existing posts:
+Run the analyzer to extract the mechanical conventions across existing posts. Your working
+directory is the **Hugo repo**, not this skill — invoke the script by its path inside this skill's
+directory, pointing it at the repo's content dir:
 
 ```bash
-scripts/analyze_style.py content            # defaults to ./content, recent 5
-scripts/analyze_style.py content --recent 8 # sample more posts
+"<skill-dir>/scripts/analyze_style.py" content            # defaults to recent 5
+"<skill-dir>/scripts/analyze_style.py" content --recent 8 # sample more posts
 ```
 
 It reports the front-matter format and key frequency, the section/dir posts live in, the filename
 pattern, length/heading/list/code stats, the tag/category vocabulary, and the most-recent files.
+
+If it finds too few posts to learn from (a new or nearly-empty blog), say so and ask the user to
+point at 2–3 exemplar posts to imitate; if there are none, proceed with clean, conventional Hugo
+defaults and tell the user you did so.
 
 Then **read the 2–3 most-recent full posts** it lists to capture the qualitative voice that a
 script can't: tone, sentence rhythm, opening and closing patterns, formatting habits, how headings
@@ -54,6 +60,10 @@ and lists are used, first vs third person. Summarize all of this into a short **
 Hand `social-content` the topic **and** the full style profile plus 1–2 representative excerpts,
 instructing it to write a complete blog post in that exact voice, structure, and length. It is the
 primary writer — don't hand-write the body yourself when it's available.
+
+Write only truthful content: don't invent facts, statistics, quotes, dates, or links to fit the
+voice. Where the author would cite something specific, leave a clearly marked `TODO:` placeholder
+for them to fill rather than fabricating it.
 
 ### 5. Place the file with correct front matter
 
@@ -79,6 +89,7 @@ The post must read **exactly** like the author. Compare the draft against the st
 - Word count within the author's typical range
 - Heading density, list/code usage, and paragraph length in the author's habit
 - Tone, person, opening/closing pattern match
+- No invented facts, quotes, or stats — any specifics are real or left as marked `TODO:` placeholders
 
 If anything is off, send it back through `social-content` with the specific gap and revise. Repeat
 until it matches.
