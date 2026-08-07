@@ -29,6 +29,7 @@ delegated to dedicated skills that stay current:
 
 | When you're… | Use skill |
 |--------------|-----------|
+| Planning the app's UI/UX — HIG, navigation, SF Symbols, typography, color, layout | `apple-design` |
 | Building SwiftUI views/components — layout, navigation, TabView, composition | `swiftui-ui-patterns` |
 | SwiftUI engineering — state/`@Observable` data flow, performance/invalidation, Instruments traces, latest/deprecated APIs | `swiftui-expert-skill` |
 | Writing or reviewing tests | `swift-testing-pro` |
@@ -76,7 +77,8 @@ with this review.
 - watchOS/tvOS targets get their own copies of models (not shared framework)
 - Package manager: **pnpm** (not npm) for web projects
 
-For SwiftUI UI patterns (views, layout, navigation, TabView, composition) defer to
+When planning the app's UI (HIG, navigation, SF Symbols, typography, color, layout) defer to
+`apple-design`; for SwiftUI UI patterns (views, layout, TabView, composition) defer to
 `swiftui-ui-patterns`; for SwiftUI engineering (state, `@Observable`, performance, latest APIs)
 defer to `swiftui-expert-skill`; for tests defer to `swift-testing-pro`; for Liquid Glass design
 defer to `swiftui-liquid-glass`.
