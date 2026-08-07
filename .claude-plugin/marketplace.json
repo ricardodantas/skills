@@ -17,8 +17,7 @@
         "./skills/learn-codebase",
         "./skills/terminal-screenshots",
         "./skills/podman-browser",
-        "./skills/apple-app-ship",
-        "./skills/typefully-cli"
+        "./skills/apple-app-ship"
       ]
     }
   ]

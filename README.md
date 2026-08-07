@@ -86,12 +86,6 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 - **[terminal-screenshots](./skills/terminal-screenshots/SKILL.md)** — Generate reproducible terminal screenshots and animated GIF/MP4/WebM recordings from VHS (Charmbracelet) `.tape` scripts, for docs, READMEs, and CLI demos.
 - **[podman-browser](./skills/podman-browser/SKILL.md)** — Headless browser automation via Podman + Playwright (Chromium) to fetch and scrape JavaScript-rendered pages as text or HTML.
 
-### Content
-
-**Model-invoked**
-
-- **[typefully-cli](./skills/typefully-cli/SKILL.md)** — Manage social content via the Typefully CLI — create, schedule, publish, and manage drafts across X, LinkedIn, Threads, Bluesky, and Mastodon from the terminal.
-
 ## Repository layout
 
 ```
@@ -101,8 +95,7 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 │   ├── learn-codebase/
 │   ├── terminal-screenshots/
 │   ├── podman-browser/
-│   ├── apple-app-ship/
-│   └── typefully-cli/
+│   └── apple-app-ship/
 ├── template/SKILL.md                 # blank starting point for a new skill
 └── README.md
 ```
