@@ -1,6 +1,8 @@
 # App Store Images
 
-Generate marketing images for App Store Connect using **Node.js + sharp**.
+Two ways to produce App Store Connect screenshots. Prefer the **asc-shots-pipeline** skill for
+automated capture, framing, and upload; drop to the **Node + sharp** generator when you want
+bespoke branded marketing frames (headline copy + accent glows) it doesn't produce.
 
 ## Required Sizes
 
@@ -12,6 +14,20 @@ Generate marketing images for App Store Connect using **Node.js + sharp**.
 | Mac | 2880×1800 | MacBook Pro |
 
 Apple requires 5-10 screenshots per device. Aim for 5-6.
+
+## Recommended: asc-shots-pipeline
+
+Use the `asc-shots-pipeline` skill to produce the screenshots end to end — automated capture
+(xcodebuild/simctl + AXe UI flows), framing (`asc screenshots frame`), and upload
+(`asc screenshots upload`). Confirm it's available; if missing, tell the user and offer to
+install it — `npx skills find asc-shots-pipeline`. Feed it the Required Sizes above and the
+debug-seeded app state (see app-polish.md) for clean, populated screens.
+
+## Alternative: custom-designed marketing images (Node + sharp)
+
+Use this path for bespoke branded frames — dark background, accent glow, bold headline copy —
+beyond standard device framing; the generator is `scripts/generate-appstore-images.js`. The
+sections below configure it.
 
 ## Design Language
 

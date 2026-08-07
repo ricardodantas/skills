@@ -34,6 +34,7 @@ delegated to dedicated skills that stay current:
 | Writing or reviewing tests | `swift-testing-pro` |
 | Implementing or reviewing the visual design (iOS 26+ Liquid Glass) | `swiftui-liquid-glass` |
 | Designing the marketing website UI (Phase 3 — layout, components, aesthetic) | `frontend-design` |
+| Producing App Store screenshots (Phase 4 — capture, frame, upload) | `asc-shots-pipeline` |
 
 Before that work, confirm the skill is available (it appears in your available skills). If one
 is missing, tell the user and offer to install it — `npx skills find <skill-name>` — rather than
@@ -82,4 +83,5 @@ defer to `swiftui-liquid-glass`.
 
 ### Reusable Assets
 
+- **App Store screenshots**: prefer the `asc-shots-pipeline` skill (capture → frame → upload). The Node + sharp script below is the fallback for bespoke branded marketing frames.
 - `scripts/generate-appstore-images.js` — Parameterized Node + sharp script for generating App Store marketing images (iPhone, iPad, Mac) with device frames, Dynamic Island, headlines, and shadows. See references/app-store-images.md for configuration.
