@@ -54,6 +54,14 @@ Determine which phase the user needs, then read only that reference file. Most p
 | "Submit to App Store" / "App Store metadata" | 5 → app-store-connect.md |
 | "Ship this app" (end-to-end) | Read phases sequentially as needed |
 
+### Final review
+
+When the work is finished — before submitting to App Store Connect — run a review of the
+codebase with `apple-appstore-reviewer` to catch App Store optimizations and likely rejection
+reasons. Confirm it's available; if missing, tell the user and offer to install it —
+`npx skills find apple-appstore-reviewer`. For an end-to-end "ship this app" run, always finish
+with this review.
+
 ### Key Conventions (All Phases)
 
 - **Always use the latest versions of Swift and Xcode** (currently Swift 6, Xcode 26+)
