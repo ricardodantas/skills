@@ -37,12 +37,21 @@ sharpen a specific doc.
 Run the scanner from this skill's directory (your cwd is the target repo):
 
 ```bash
-"<skill-dir>/scripts/scan_docs.py" .
+"<skill-dir>/scripts/scan_docs.py" .                                          # baseline: last release tag
+"<skill-dir>/scripts/scan_docs.py" . --since "$(git merge-base origin/HEAD HEAD)"  # a PR / feature branch
 ```
 
-It lists every doc file classified as `human`, `agent`, or `changelog`, and — in a git repo — the
-last release tag plus the files changed since it. **Changed files since the tag are the drift map:
-docs describing that code are the ones most likely stale.** Prioritize them.
+It classifies every doc file (`human`, `agent`, `changelog`) and reports the **drift map** — files
+changed since a baseline, plus any uncommitted work. Choose the baseline for the situation:
+
+- **Release** — omit `--since`; it defaults to the last release tag.
+- **PR / feature branch** — pass `--since <merge-base with the base branch>` so the map is the
+  branch's own changes, not everything since the last tag.
+- **No tag / no baseline** — the scanner reports `has_baseline: false` and only uncommitted changes.
+  There's no diff baseline, so reconcile the whole doc set against the model from step 1.
+
+**Docs describing changed code are the ones most likely stale — prioritize them.** Uncommitted
+changes are included so you can sync docs in the same batch before committing.
 
 ## 3. Reconcile each doc against the model
 

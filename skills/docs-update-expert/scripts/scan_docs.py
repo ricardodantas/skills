@@ -72,11 +72,18 @@ def _git(root: Path, *args: str) -> str | None:
 
 def _working_tree_changes(root: Path) -> list[str]:
     """Paths with staged/unstaged/untracked changes (`git status --porcelain`)."""
+    try:
+        out = subprocess.run(
+            ["git", "status", "--porcelain"], cwd=root,
+            capture_output=True, text=True, check=True,
+        ).stdout  # raw — porcelain columns are position-sensitive, don't strip
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return []
     files = []
-    for line in (_git(root, "status", "--porcelain") or "").splitlines():
+    for line in out.splitlines():
         if not line.strip():
             continue
-        entry = line[3:] if len(line) > 3 else line.strip()
+        entry = line[3:]  # 'XY ' status prefix is always 3 chars in porcelain v1
         if " -> " in entry:  # rename/copy — keep the destination
             entry = entry.split(" -> ", 1)[1]
         files.append(entry.strip().strip('"'))

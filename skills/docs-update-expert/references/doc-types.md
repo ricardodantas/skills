@@ -19,8 +19,8 @@ When a claim depends on a specific library/framework/CLI version, pull current d
 
 ## Changelog / release notes
 
-- Derive entries from git changes since the last release tag (`scan_docs.py` reports the tag and
-  changed files; use `git log <tag>..HEAD` for messages).
+- Derive entries from the drift map (`scan_docs.py` reports the baseline and changed files; use
+  `git log <baseline>..HEAD` for the messages).
 - Group by kind (Added / Changed / Fixed / Removed / Deprecated / Security); user-facing voice,
   not raw commit subjects.
 - Respect the repo's release tooling: if it uses **Changesets** (`.changeset/`),
