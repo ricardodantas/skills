@@ -15,6 +15,7 @@
       "strict": false,
       "skills": [
         "./skills/learn-codebase",
+        "./skills/app-idea-research",
         "./skills/terminal-screenshots",
         "./skills/podman-browser",
         "./skills/apple-app-ship",
