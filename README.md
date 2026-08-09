@@ -65,6 +65,7 @@ Model-invoked skills are also reached for automatically when a task fits.
 Small, composable skills — not a framework. Each solves one real problem an agent hits:
 
 - **learn-codebase** — Landing in an unfamiliar repo is slow; agents guess from file names and miss the real architecture. This skill treats your installed skills as a toolbox: it detects the stack, picks the skills that fit, traces the code end to end, and leaves a `docs/CODEBASE_OVERVIEW.md` behind.
+- **app-idea-research** — App ideas feel promising in your head and die in the market. This skill orchestrates your installed research skills and fans out parallel subagents across community pain points, competitors, market trends, demographics, monetization, and the latest Apple/Android frameworks — then hands back a brutally honest go/no-go verdict with 1–10 scores and a platform call.
 - **apple-app-ship** — Shipping an Apple app spans architecture, polish, a marketing site, App Store screenshots, and submission — each a specialty. This skill orchestrates the workflow, checking for and delegating to the right companion skill at each phase instead of re-teaching everything.
 - **terminal-screenshots** — Hand-recorded terminal GIFs drift and look inconsistent. VHS `.tape` scripts make them reproducible and re-runnable in CI.
 - **podman-browser** — A plain HTTP fetch returns empty markup on JavaScript-rendered pages. This renders the page headlessly in a Podman + Playwright container and returns the real text or HTML.
@@ -80,6 +81,7 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 **Model-invoked**
 
 - **[learn-codebase](./skills/learn-codebase/SKILL.md)** — Discovers the installed agent skills, applies the ones relevant to a repo's stack, and maps its architecture, modules, data flow, conventions, and build/run/test — producing an in-conversation briefing plus a saved `docs/CODEBASE_OVERVIEW.md`.
+- **[app-idea-research](./skills/app-idea-research/SKILL.md)** — Researches and validates an app idea end-to-end and returns a brutally honest go/no-go verdict. Orchestrates the installed research skills (`apple-app-research`, `android-app-research`, `ios-app-research`, `research`, `competitor-alternatives`, `pricing-strategy`, …) and fans out parallel subagents across community pain points, competitors, market trends, demographics, monetization, and the latest Apple/Android frameworks — then synthesizes one report with 1–10 scores, a platform recommendation (iOS/Mac-only, Android-only, or multiplatform), a detailed description, and examples.
 - **[apple-app-ship](./skills/apple-app-ship/SKILL.md)** — End-to-end workflow for building, polishing, and shipping native Apple platform apps (SwiftUI) — architecture, marketing website, App Store screenshots, and App Store Connect submission. Orchestrates specialized companion skills at each phase (checking they're installed first) rather than re-teaching the craft.
 - **[docs-update-expert](./skills/docs-update-expert/SKILL.md)** — Reconciles a repo's docs (README, `docs/`, CHANGELOG, agent docs, API refs, inline comments) with its current state. Orchestrates `learn-codebase` to model the repo, `writing-for-agents` for agent-facing docs, and `find-docs` for version-specific details.
 
@@ -104,6 +106,7 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 ├── .claude-plugin/marketplace.json   # plugin/marketplace manifest
 ├── skills/                           # one directory per skill
 │   ├── learn-codebase/
+│   ├── app-idea-research/
 │   ├── terminal-screenshots/
 │   ├── podman-browser/
 │   ├── apple-app-ship/
