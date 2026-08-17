@@ -71,6 +71,7 @@ Small, composable skills — not a framework. Each solves one real problem an ag
 - **podman-browser** — A plain HTTP fetch returns empty markup on JavaScript-rendered pages. This renders the page headlessly in a Podman + Playwright container and returns the real text or HTML.
 - **hugo-write-post** — Blog posts written by an agent read generic. This skill learns your voice from your existing Hugo posts and drafts a new one on a given topic that matches it, placed with the right front matter — delegating the writing to `social-content`.
 - **hugo-expert** — Hugo ships often and its APIs move, so cached knowledge goes stale. This skill pairs durable Hugo best-practices (themes, templating, config, performance, deploy, i18n, SEO) with live, version-pinned docs fetched via Context7 — expert help that stays current with the repo's Hugo version.
+- **apple-design** — Apple apps that ignore the Human Interface Guidelines feel foreign on the platform. This skill is a comprehensive HIG reference — Liquid Glass, SF Symbols, typography, color, layout, accessibility, navigation patterns, and platform-specific guidance for iOS, macOS, watchOS, tvOS, and visionOS — so `apple-app-ship` and any Apple-platform work can build UI that feels native by default.
 
 ## Reference
 
@@ -84,6 +85,7 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 - **[app-idea-research](./skills/app-idea-research/SKILL.md)** — Researches and validates an app idea end-to-end and returns a brutally honest go/no-go verdict. Orchestrates the installed research skills (`apple-app-research`, `android-app-research`, `ios-app-research`, `research`, `competitor-alternatives`, `pricing-strategy`, …) and fans out parallel subagents across community pain points, competitors, market trends, demographics, monetization, and the latest Apple/Android frameworks — then synthesizes one report with 1–10 scores, a platform recommendation (iOS/Mac-only, Android-only, or multiplatform), a detailed description, and examples.
 - **[apple-app-ship](./skills/apple-app-ship/SKILL.md)** — End-to-end workflow for building, polishing, and shipping native Apple platform apps (SwiftUI) — architecture, marketing website, App Store screenshots, and App Store Connect submission. Orchestrates specialized companion skills at each phase (checking they're installed first) rather than re-teaching the craft.
 - **[docs-update-expert](./skills/docs-update-expert/SKILL.md)** — Reconciles a repo's docs (README, `docs/`, CHANGELOG, agent docs, API refs, inline comments) with its current state. Orchestrates `learn-codebase` to model the repo, `writing-for-agents` for agent-facing docs, and `find-docs` for version-specific details.
+- **[apple-design](./skills/apple-design/SKILL.md)** — Comprehensive Apple Human Interface Guidelines (HIG) reference: Liquid Glass, SF Symbols, Icon Composer, typography, color, layout, accessibility, navigation patterns, UI components, and platform-specific guidance for iOS, macOS, watchOS, tvOS, and visionOS.
 
 ### Tooling
 
@@ -111,7 +113,9 @@ Skills split on one axis — who can invoke them. **User-invoked** skills run on
 │   ├── podman-browser/
 │   ├── apple-app-ship/
 │   ├── hugo-write-post/
-│   └── hugo-expert/
+│   ├── hugo-expert/
+│   ├── docs-update-expert/
+│   └── apple-design/
 ├── template/SKILL.md                 # blank starting point for a new skill
 └── README.md
 ```
