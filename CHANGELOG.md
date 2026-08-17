@@ -1,5 +1,13 @@
 # skills
 
+## 1.5.0
+
+### Minor Changes
+
+- 28155cb: Add the `app-idea-research` skill — researches and validates an app or software product idea end-to-end and returns a brutally honest go/no-go verdict. It is an orchestrator: it preflights the installed research skills (`apple-app-research`, `android-app-research`, `ios-app-research`, `research`, `competitor-alternatives`, `pricing-strategy`, `marketing-ideas`, `launch-strategy`, `find-docs`, `find-skills`) and fans out parallel subagents across community pain points (Reddit/forums), competitors, market size and trends, target demographics, monetization, and the latest Apple and Android frameworks — then synthesizes a single report with 1–10 scores per dimension, a platform recommendation (iOS/Mac-only, Android-only, or multiplatform), a detailed concept description, concrete examples, evidence with citations, risks, and MVP scope. Delivers both an in-conversation briefing and a saved `app-idea-research-<slug>.md`. Ships two references: `research-playbook.md` (parallel subagent briefs, per-platform source lists, framework-check guidance) and `verdict-report.md` (the report template).
+- 2b68960: Add the `apple-design` skill — a comprehensive Apple Human Interface Guidelines (HIG) and design system reference covering Liquid Glass (iOS 26+), SF Symbols, Icon Composer, typography, color, layout, accessibility, navigation patterns, UI components, and platform-specific guidance for iOS, macOS, watchOS, tvOS, and visionOS. Ships seven references (`hig-foundations.md`, `hig-patterns.md`, `hig-components.md`, `liquid-glass.md`, `sf-symbols.md`, `icon-design.md`, `platform-specific.md`) plus a design-philosophy summary and a core-principles checklist in `SKILL.md`. `apple-app-ship` already treats `apple-design` as a companion dependency for its plan-and-build phase; it now ships in this repo instead of relying on it being installed separately.
+- 2b68960: add apple-design skill
+
 ## 1.4.0
 
 ### Minor Changes

@@ -1,5 +1,0 @@
----
-"skills": minor
----
-
-Add the `app-idea-research` skill — researches and validates an app or software product idea end-to-end and returns a brutally honest go/no-go verdict. It is an orchestrator: it preflights the installed research skills (`apple-app-research`, `android-app-research`, `ios-app-research`, `research`, `competitor-alternatives`, `pricing-strategy`, `marketing-ideas`, `launch-strategy`, `find-docs`, `find-skills`) and fans out parallel subagents across community pain points (Reddit/forums), competitors, market size and trends, target demographics, monetization, and the latest Apple and Android frameworks — then synthesizes a single report with 1–10 scores per dimension, a platform recommendation (iOS/Mac-only, Android-only, or multiplatform), a detailed concept description, concrete examples, evidence with citations, risks, and MVP scope. Delivers both an in-conversation briefing and a saved `app-idea-research-<slug>.md`. Ships two references: `research-playbook.md` (parallel subagent briefs, per-platform source lists, framework-check guidance) and `verdict-report.md` (the report template).
