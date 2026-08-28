@@ -1,7 +1,8 @@
 # Doc types — reconciliation checklist
 
 One section per category. For each doc, read it, compare against the ground-truth model from
-`learn-codebase`, and fix only what drifted. Edit discipline (bottom) applies to every category.
+`learn-codebase`, and fix only what drifted. [Cross-linking & navigation](#cross-linking--navigation)
+and [edit discipline](#edit-discipline-all-categories) at the bottom apply to every category.
 
 ## Human docs — README, `docs/`, guides, wikis
 
@@ -11,7 +12,8 @@ Reconcile against what the repo actually does now:
 - **Usage & examples** — sample commands, flags, and code compile/run against current APIs.
 - **Feature list** — add shipped features, drop removed ones; no vaporware.
 - **Architecture / layout** — directory trees and module descriptions match the tree on disk.
-- **Links** — internal paths resolve; external links still point somewhere real.
+- **Links** — internal paths resolve; external links still point somewhere real; the doc is
+  linked from its hub and links onward (see [Cross-linking & navigation](#cross-linking--navigation)).
 - **Badges / versions** — version numbers, min-runtime, and status badges are current.
 
 When a claim depends on a specific library/framework/CLI version, pull current docs with
@@ -55,6 +57,44 @@ Reconcile the parts that track the repo's *current state*:
   things. Delete comments describing deleted code.
 - Don't add narration to code that doesn't need it (respect the repo's existing comment density).
 
+## Cross-linking & navigation
+
+The doc set is a graph. `scan_docs.py` reports it under `links`: `graph` (per-doc `in`/`out`
+edges), `broken_links`, and `orphans`. Reconcile the graph, not just the prose.
+
+**Where a link belongs**
+
+- **Hub → spoke** — the README (or `docs/` index) links every top-level doc; each area doc links
+  the deep-dives beneath it. Aim for any doc reachable from the README in one or two hops.
+- **Spoke → hub** — a doc buried a few levels down links back up to its area doc or the README, so
+  a reader arriving from search knows where they are.
+- **Sideways** — docs covering adjacent ground link to each other (setup ↔ troubleshooting,
+  API ref ↔ the guide that uses it, ADR ↔ the code doc it decided).
+- **Agent docs** — `AGENTS.md`/`CLAUDE.md` point to the deeper docs instead of restating them, and
+  a `SKILL.md` links every file in its own `references/` and `scripts/`.
+- **Changelog** — entries link the docs, issues, or PRs behind a user-facing change when the repo's
+  format already does that; don't start a new convention.
+
+**How to write the link**
+
+- **Relative paths**, repo-root-relative only where the docs already do that; never absolute local
+  paths or `file://`. A link to a heading uses the slug (`guide.md#install`).
+- **Descriptive text** — link the doc's subject (`[the release flow](docs/release.md)`), not "here"
+  or a bare URL.
+- **Backticked path ≠ link** — `docs/foo.md` in code font is a mention, not an edge; if a reader is
+  meant to go there, make it a real link. This is also why a mentioned-only doc shows up as an
+  orphan in the scan.
+- **Point, don't copy** — when a fact already lives in another doc, link it instead of restating it.
+  Duplicated prose is what drifts.
+
+**Fixing the graph**
+
+- Every entry in `broken_links` gets fixed — repoint moved files, drop links to deleted ones.
+- Every `orphan` gets an inbound link from the doc that owns its topic, or a deletion proposal if
+  nothing should link to it. Entry points (README, `AGENTS.md`, `CLAUDE.md`, `CHANGELOG`, index
+  files, `SKILL.md`) are reached directly and are already excluded from the orphan list.
+- Moved or renamed a doc? Update every inbound edge the `graph` lists for it.
+
 ---
 
 ## Edit discipline (all categories)
@@ -64,5 +104,7 @@ Reconcile the parts that track the repo's *current state*:
   is needed but unknown, leave a marked `TODO:` for the maintainer.
 - **Preserve voice & format** — match each doc's existing tone, heading style, and front matter.
 - **Single source of truth** — don't duplicate a fact across docs; point to the canonical one.
+- **Leave it reachable** — every doc you add or move ends the pass with an inbound link and
+  working outbound ones (see [Cross-linking & navigation](#cross-linking--navigation)).
 - **Verify before claiming done** — resolve links, run sample commands/snippets, and run the repo's
   docs build if one exists.
