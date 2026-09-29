@@ -1,6 +1,6 @@
 ---
 name: learn-codebase
-description: Learn and explain an unfamiliar codebase by first discovering which agent skills are installed, then applying the ones relevant to this repo's stack to map its architecture, modules, data flow, conventions, and how to build/run/test it. Produces an in-conversation briefing and a saved docs/CODEBASE_OVERVIEW.md. Use when the user asks to "understand/learn/explain this repo", "onboard me to this codebase", "give me an overview of the project", "how does this codebase work", or when starting work in a repo you have not seen before.
+description: Learn and explain an unfamiliar codebase by first discovering which agent skills are installed, then applying the ones relevant to this repo's stack to map its architecture, modules, data flow, conventions, and how to build/run/test it. Produces an in-conversation briefing and a saved docs/CODEBASE_OVERVIEW.md, and creates a README.md and AGENTS.md/CLAUDE.md when the repo has none. Use when the user asks to "understand/learn/explain this repo", "onboard me to this codebase", "give me an overview of the project", "how does this codebase work", "this repo has no README/AGENTS.md", or when starting work in a repo you have not seen before.
 ---
 
 # Learn Codebase
@@ -9,7 +9,8 @@ description: Learn and explain an unfamiliar codebase by first discovering which
 
 Orchestrate the *other* installed skills to understand a codebase. First find out what
 skills exist, pick the ones that fit this repo, then use them to produce a briefing plus a
-saved `docs/CODEBASE_OVERVIEW.md`.
+saved `docs/CODEBASE_OVERVIEW.md`. If the repo has no README or no agent guidance file, create
+them from the same analysis.
 
 ## Workflow
 
@@ -18,6 +19,7 @@ saved `docs/CODEBASE_OVERVIEW.md`.
 3. **Select relevant skills** — match stack + task to skills.
 4. **Analyze** — apply the selected skills to learn the repo.
 5. **Output** — deliver a briefing and write `docs/CODEBASE_OVERVIEW.md`.
+6. **Bootstrap missing docs** — create `README.md` and `AGENTS.md` + `CLAUDE.md` if absent.
 
 ## 1. Discover available skills
 
@@ -42,6 +44,7 @@ Read only what's cheap and decisive before committing to skills:
 
 - **Docs first**: `README`, `AGENTS.md` / `CLAUDE.md`, `CONTRIBUTING`, `docs/` — the
   highest-signal source for purpose, conventions, and the *real* build/run/test commands.
+  Note which of these are missing. Step 6 needs that list.
 - **Manifests / lockfiles**: `package.json`, `pyproject.toml`, `go.mod`, `Cargo.toml`,
   `*.csproj`, `Gemfile`, `pom.xml`, `Package.swift`, `*.xcodeproj`.
 - **Config**: framework configs (next.config, vite, tailwind, astro), `Dockerfile`,
@@ -99,4 +102,26 @@ Deliver **both**:
    doesn't exist. Anchor the report with the current date and commit SHA. If the file already
    exists, reconcile/update it rather than blindly overwriting.
 
-Write the report file but do **not** commit it automatically — leave that to the user.
+## 6. Bootstrap missing docs
+
+Check the repo root (and, in a monorepo, only the root unless the user asks for per-package docs).
+Use the templates in [references/bootstrap-docs.md](references/bootstrap-docs.md).
+
+- **README**: if no `README*` file exists (any case or extension, e.g. `readme.md`,
+  `README.rst`, `README.txt`), create `README.md`.
+- **Agent guidance**: if none of these exist, create `AGENTS.md` plus a `CLAUDE.md` that imports it:
+  `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`,
+  `.github/instructions/`, `.cursorrules`, `.cursor/rules/`, `.windsurfrules`, `.clinerules`.
+  If only some exist, leave them alone. Don't add a second, parallel set.
+
+Rules:
+
+- Only create files that are missing. Never overwrite, rename, or restructure an existing file.
+  If an existing one looks stale or thin, say so in the briefing and don't edit it.
+- Build the content from the step 4 analysis, not from assumptions. Take commands from manifests
+  and CI. Leave out any section you couldn't verify.
+- Link both new files to `docs/CODEBASE_OVERVIEW.md` instead of copying the architecture into them.
+- In the briefing, list which files were created and which already existed.
+
+Write the report and any bootstrapped files but do **not** commit them automatically — leave that
+to the user.
