@@ -65,7 +65,7 @@ end-to-end "ship this app" run with this review.
 
 ### Key Conventions (All Phases)
 
-- **Always use the latest versions of Swift and Xcode** (currently Swift 6, Xcode 26+)
+- **Always use the latest versions of Swift and Xcode** (currently Swift 6.4, Xcode 27+)
 - **Bundle identifier pattern**: `com.yourcompany.<appname>` (e.g. `com.yourcompany.myapp`) — use your own reverse-DNS domain
 - **CloudKit container pattern**: `iCloud.com.yourcompany.<appname>`
 - Zero third-party dependencies (100% Apple frameworks)
