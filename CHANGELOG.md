@@ -1,5 +1,12 @@
 # skills
 
+## 1.7.0
+
+### Minor Changes
+
+- fc141c4: apple-design: refresh for the 27 releases (iOS 27, iPadOS 27, macOS 27, watchOS 27, tvOS 27, visionOS 27). Liquid Glass guidance now covers the 27 refinements — the clear-to-tinted slider, refined scroll edge effects, and the `UIDesignRequiresCompatibility` opt-out being ignored with the 27 SDK — plus the new toolbar, tab, and menu APIs, Siri snippets, iPhone Duo, macOS 27 Golden Gate, Icon Composer 2, SF Symbols 8, and the reintroduced HIG design principles. It also covers the rest of the Human Interface Guidelines, researched from the live HIG with Firecrawl. The existing references are expanded (dark mode, motion, writing, right-to-left, feedback, data entry, drag and drop, haptics, charts, materials, iPhone Duo and visionOS layout), and four new references are added: `hig-components-extended.md`, `hig-system-experiences.md` (widgets, Live Activities, Controls, notifications, complications), `hig-inputs.md`, and `hig-technologies.md` (Sign in with Apple, Apple Pay, In-App Purchase, CarPlay, SharePlay, and more). Every section ends with a link to its source HIG page, and the legacy device point-size tables are replaced with a pointer to Xcode Device Hub, since Apple no longer publishes per-device sizes. SKILL.md links every reference directly. `apple-app-ship` targets Xcode 27 and the 27 OS versions.
+- f9191ec: learn-codebase: a new step 6 creates `README.md` and `AGENTS.md` + `CLAUDE.md` (which imports `AGENTS.md`) when the analyzed repo has none. It checks for any README variant and for the common agent-guidance files (AGENTS.md, CLAUDE.md, GEMINI.md, Copilot, Cursor, Windsurf, Cline) first, never overwrites existing files, and fills the new ones from the verified analysis using the templates in `references/bootstrap-docs.md`.
+
 ## 1.6.0
 
 ### Minor Changes
