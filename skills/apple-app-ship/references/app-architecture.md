@@ -2,8 +2,8 @@
 
 ## Tooling
 
-- **Always use the latest Swift and Xcode versions** (currently Swift 6, Xcode 26)
-- Target the latest OS versions (iOS 26+, macOS Tahoe 26+, watchOS 26+, tvOS 26+)
+- **Always use the latest Swift and Xcode versions** (currently Swift 6.4, Xcode 27)
+- Target the latest OS versions (iOS 27+, macOS 27+, watchOS 27+, tvOS 27+)
 - Use XcodeGen (`project.yml`) for project generation when creating new apps
 - Build/run via `xcode-mcp`; signing and archive/upload via `asc-signing-setup` / `asc-xcode-build`
 
